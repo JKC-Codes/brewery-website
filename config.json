@@ -1,0 +1,10 @@
+{
+	"disableKinds": ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT"],
+	"metaDataFormat": "json",
+	"baseURL": "https://jkc.codes/projects/new",
+	"uglyURLs": true,
+	"relativeURLs": true,
+	"defaultContentLanguage": "en-GB",
+	"languageCode": "en-GB",
+	"title": "New Project"
+}

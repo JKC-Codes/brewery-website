@@ -1,0 +1,48 @@
+@media (max-width: 37.4375rem) {
+	%hide-narrow {
+		display: none !important;
+	}
+}
+
+@media (min-width: 37.5rem) {
+	%hide-wide {
+		display: none !important;
+	}
+}
+
+%hide-visually {
+	position: absolute !important;
+	top: auto !important;
+	left: -100vw !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: 0 !important;
+	border: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+}
+
+%group {
+	display: flow-root;
+
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+%flex {
+	display: flex;
+}
+
+%column {
+	@extend %flex;
+	flex-direction: column;
+}
+
+%row {
+	@extend %flex;
+	flex-direction: row;
+}
