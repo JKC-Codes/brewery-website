@@ -1,10 +1,10 @@
 {
 	"disableKinds": ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT"],
 	"metaDataFormat": "json",
-	"baseURL": "https://jkc.codes/projects/new",
+	"baseURL": "https://jkc.codes/projects/brewery-website",
 	"uglyURLs": true,
 	"relativeURLs": true,
 	"defaultContentLanguage": "en-GB",
 	"languageCode": "en-GB",
-	"title": "New Project"
+	"title": "The Brewery"
 }
