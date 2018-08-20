@@ -13,6 +13,17 @@
 	& > header {
 		width: 100%;
 	}
+
+	& > p::before {
+		content: '';
+		display: block;
+		position: relative;
+		left: 50%;
+		transform: translate(-50%, -1.25rem);
+		background: white;
+		width: 6rem;
+		height: 0.0625rem;
+	}
 }
 
 .site-navigation {
@@ -50,14 +61,3 @@
 	width: 100%;
 	padding: 4rem 0 2rem 0;
 }
-
-p::before {
-		content: '';
-		display: block;
-		position: relative;
-		left: 50%;
-		transform: translate(-50%, -1.25rem);
-		background: white;
-		width: 6rem;
-		height: 0.0625rem;
-	}
