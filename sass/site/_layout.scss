@@ -4,7 +4,10 @@ html {
 	overflow-wrap: break-word;
 }
 
-body {
-	max-width: 75rem;
-	margin: 0 auto;
+body > * {
+	padding: 0 1rem;
+}
+
+.subtitle {
+	font-family: "program", sans-serif;
 }

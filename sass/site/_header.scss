@@ -1,0 +1,6 @@
+.site-navigation {
+	@extend %row;
+	padding: 1rem 0;
+	list-style-type: none;
+	justify-content: space-between;
+}

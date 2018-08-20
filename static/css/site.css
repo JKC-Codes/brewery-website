@@ -6,6 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@import url("https://use.typekit.net/ixk5mhv.css");
 html {
   line-height: 1.15;
   /* 1 */
@@ -436,11 +437,20 @@ template {
   display: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "program", sans-serif;
+}
+
 h1 {
   font-size: 2.7em;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
 }
+
 
 h2 {
   font-size: 2.4em;
@@ -448,17 +458,20 @@ h2 {
   margin-bottom: 0.83em;
 }
 
+
 h3 {
   font-size: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
+
 h4 {
   font-size: 1.5em;
   margin-top: 1.33em;
   margin-bottom: 1.33em;
 }
+
 
 h5 {
   font-size: 1.17em;
@@ -469,7 +482,7 @@ h5 {
 a {
   text-decoration-skip-ink: auto;
   display: inline;
-  color: #cd2814;
+  color: #414A4D;
   padding: 0;
   min-width: 0;
   min-height: 0;
@@ -480,7 +493,7 @@ a {
 }
 
 a:link {
-  color: #cd2814;
+  color: #414A4D;
 }
 
 a:visited {
@@ -503,7 +516,7 @@ button {
   padding: 0.75rem 2.5rem;
   min-width: 3rem;
   min-height: 3rem;
-  background-color: #282832;
+  background-color: #A3B9BF;
   color: #fff;
   border-radius: 0.25em;
   -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
@@ -518,6 +531,23 @@ button:active, summary:active {
   -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
   outline: none;
+}
+
+.hero, .site-navigation {
+  display: -webkit-box;
+  display: flex;
+}
+
+.hero {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.site-navigation {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
 }
 
 *,
@@ -583,7 +613,7 @@ summary {
   width: fit-content;
   padding: 0.75rem calc(2.5rem - 2ch);
   margin: 0.5rem 0;
-  background-color: #e6e6e6;
+  background-color: #D3CDC1;
   border-radius: 0.25em;
   -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
@@ -596,15 +626,15 @@ details[open] {
   margin: 0.5rem 0;
   padding: 0 0.5rem 0.5rem 0.5rem;
   border-radius: 0.25em;
-  -webkit-box-shadow: inset 0.0625rem 0 #e6e6e6, inset -0.0625rem -0.0625rem #e6e6e6;
-          box-shadow: inset 0.0625rem 0 #e6e6e6, inset -0.0625rem -0.0625rem #e6e6e6;
+  -webkit-box-shadow: inset 0.0625rem 0 #D3CDC1, inset -0.0625rem -0.0625rem #D3CDC1;
+          box-shadow: inset 0.0625rem 0 #D3CDC1, inset -0.0625rem -0.0625rem #D3CDC1;
 }
 
 details[open] summary {
   width: calc(100% + (0.5rem * 2));
   margin-top: 0;
   margin-bottom: 0;
-  border-bottom: 0.0625rem solid #cd2814;
+  border-bottom: 0.0625rem solid #414A4D;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-left: -0.5rem;
@@ -630,7 +660,7 @@ td {
 }
 
 th[scope=col] {
-  border-bottom: 0.0625rem solid #cd2814;
+  border-bottom: 0.0625rem solid #414A4D;
 }
 
 img {
@@ -643,7 +673,7 @@ figcaption {
 
 button[disabled] {
   cursor: default;
-  background-color: #e6e6e6;
+  background-color: #D3CDC1;
   color: grey;
   -webkit-filter: none;
           filter: none;
@@ -655,13 +685,13 @@ button[disabled] {
 hr {
   margin: 0.5rem 0;
   border: none;
-  border-top: 0.0625rem solid #cd2814;
+  border-top: 0.0625rem solid #414A4D;
 }
 
 input,
 textarea,
 select {
-  font: 125%/1.5 Arial, Helvetica, sans-serif;
+  font: 125%/1.5 "edita", serif;
   color: #333;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -686,7 +716,7 @@ select {
 }
 
 fieldset {
-  border: 0.0625rem solid #e6e6e6;
+  border: 0.0625rem solid #D3CDC1;
 }
 
 fieldset > legend {
@@ -696,7 +726,7 @@ fieldset > legend {
 dialog {
   z-index: 100;
   background-color: white;
-  border: 0.0625rem solid #e6e6e6;
+  border: 0.0625rem solid #D3CDC1;
   border-radius: 0.25em;
   padding: 1rem;
   -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
@@ -705,11 +735,84 @@ dialog {
 
 html {
   color: #333;
-  font: 125%/1.5 Arial, Helvetica, sans-serif;
+  font: 125%/1.5 "edita", serif;
   overflow-wrap: break-word;
 }
 
-body {
-  max-width: 75rem;
-  margin: 0 auto;
+body > * {
+  padding: 0 1rem;
+}
+
+.subtitle {
+  font-family: "program", sans-serif;
+}
+
+.hero {
+  -webkit-box-align: center;
+          align-items: center;
+  background: url("../img/hero-bg.jpg") center/cover no-repeat;
+  padding: 0 1rem 5rem 1rem;
+  text-align: center;
+  color: #D3CDC1;
+}
+
+.hero > * {
+  max-width: 37.5rem;
+}
+
+.hero > header {
+  width: 100%;
+}
+
+.site-navigation {
+  flex-wrap: wrap;
+  font-weight: 700;
+  padding: 0;
+  list-style-type: none;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 30rem) {
+  .site-navigation {
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+}
+
+.site-navigation > li {
+  margin: 0.75rem;
+}
+
+@media (max-width: 30rem) {
+  .site-navigation > li {
+    flex-basis: 40%;
+  }
+}
+
+.site-navigation a {
+  color: #D3CDC1;
+  text-decoration: none;
+}
+
+.site-navigation a:hover {
+  color: #A3B9BF;
+  text-decoration: underline;
+}
+
+.hero-image {
+  width: 100%;
+  padding: 4rem 0 2rem 0;
+}
+
+p::before {
+  content: '';
+  display: block;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%, -1.25rem);
+          transform: translate(-50%, -1.25rem);
+  background: white;
+  width: 6rem;
+  height: 0.0625rem;
 }
