@@ -825,7 +825,6 @@ h5 {
             align-items: start;
   }
   .site-nav-button {
-    float: right;
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
