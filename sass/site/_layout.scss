@@ -8,6 +8,16 @@ body > * {
 	padding: 0 1rem;
 }
 
+.subtitle,
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+}
+
 .subtitle {
-	font-family: "program", sans-serif;
+	font-style: italic;
 }

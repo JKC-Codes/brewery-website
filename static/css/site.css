@@ -6,7 +6,6 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
-@import url("https://use.typekit.net/ixk5mhv.css");
 html {
   line-height: 1.15;
   /* 1 */
@@ -533,7 +532,7 @@ button:active, summary:active {
   outline: none;
 }
 
-.hero, .site-navigation {
+.hero, .site-nav-links {
   display: -webkit-box;
   display: flex;
 }
@@ -544,7 +543,7 @@ button:active, summary:active {
           flex-direction: column;
 }
 
-.site-navigation {
+.site-nav-links {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
           flex-direction: row;
@@ -691,7 +690,7 @@ hr {
 input,
 textarea,
 select {
-  font: 125%/1.5 "edita", serif;
+  font: 125%/1.5 "Merriweather", serif;
   color: #333;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -735,7 +734,7 @@ dialog {
 
 html {
   color: #333;
-  font: 125%/1.5 "edita", serif;
+  font: 125%/1.5 "Merriweather", serif;
   overflow-wrap: break-word;
 }
 
@@ -743,8 +742,18 @@ body > * {
   padding: 0 1rem;
 }
 
+.subtitle,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
 .subtitle {
-  font-family: "program", sans-serif;
+  font-style: italic;
 }
 
 .hero {
@@ -769,14 +778,18 @@ body > * {
   display: block;
   position: relative;
   left: 50%;
-  -webkit-transform: translate(-50%, -1.25rem);
-          transform: translate(-50%, -1.25rem);
+  -webkit-transform: translate(-50%, -1.75rem);
+          transform: translate(-50%, -1.75rem);
   background: white;
   width: 6rem;
   height: 0.0625rem;
 }
 
-.site-navigation {
+.site-nav-button {
+  display: none;
+}
+
+.site-nav-links {
   flex-wrap: wrap;
   font-weight: 700;
   padding: 0;
@@ -785,34 +798,59 @@ body > * {
           justify-content: space-between;
 }
 
-@media (max-width: 30rem) {
-  .site-navigation {
-    -webkit-box-pack: center;
-            justify-content: center;
-  }
-}
-
-.site-navigation > li {
+.site-nav-links > li {
   margin: 0.75rem;
 }
 
-@media (max-width: 30rem) {
-  .site-navigation > li {
-    flex-basis: 40%;
-  }
-}
-
-.site-navigation a {
+.site-nav-links a {
   color: #D3CDC1;
   text-decoration: none;
 }
 
-.site-navigation a:hover {
+.site-nav-links a:hover {
   color: #A3B9BF;
   text-decoration: underline;
 }
 
 .hero-image {
   width: 100%;
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 0 3rem 0;
+}
+
+@media (max-width: 30rem) {
+  .site-nav[data-open] > .site-nav-button {
+    color: pink;
+  }
+  .site-nav[data-open] > .site-nav-links {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    height: 100%;
+  }
+  .site-nav-button {
+    display: block;
+    padding: 0;
+    min-width: auto;
+    min-height: auto;
+    background: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    text-align: right;
+    font-size: 0.7rem;
+    float: right;
+  }
+  .site-nav-links {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    height: 0;
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-transition: height 0.25s, -webkit-transform 0.25s ease-in-out;
+    transition: height 0.25s, -webkit-transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out, height 0.25s;
+    transition: transform 0.25s ease-in-out, height 0.25s, -webkit-transform 0.25s ease-in-out;
+  }
 }
