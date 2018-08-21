@@ -818,6 +818,12 @@ h5 {
 }
 
 @media (max-width: 33rem) {
+  .site-nav {
+    display: grid;
+    grid-template-columns: minmax(4.375rem, auto) 1fr minmax(4.375rem, auto);
+    -webkit-box-align: start;
+            align-items: start;
+  }
   .site-nav-button {
     float: right;
     display: -webkit-box;
@@ -830,6 +836,7 @@ h5 {
     padding: 0;
     min-width: auto;
     min-height: auto;
+    margin-top: 1.25rem;
     background: none;
     border-radius: 0;
     -webkit-box-shadow: none;
@@ -861,7 +868,6 @@ h5 {
   .site-nav-button .menu-icon {
     width: 1.5rem;
     height: 1.5rem;
-    margin-top: 2rem;
   }
   .site-nav-button .menu-icon .line1 {
     -webkit-transform-origin: top left;
@@ -890,10 +896,10 @@ h5 {
   .site-nav-button .menu-icon .line4,
   .site-nav-button .menu-icon .line5,
   .site-nav-button .menu-icon .line6 {
-    -webkit-transition: -webkit-transform 0.25s ease-in-out;
-    transition: -webkit-transform 0.25s ease-in-out;
-    transition: transform 0.25s ease-in-out;
-    transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   }
   .site-nav-links {
     -webkit-transform: scaleY(0);
@@ -904,10 +910,21 @@ h5 {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: column;
-    -webkit-transition: height 0.25s, -webkit-transform 0.25s ease-in-out;
-    transition: height 0.25s, -webkit-transform 0.25s ease-in-out;
-    transition: transform 0.25s ease-in-out, height 0.25s;
-    transition: transform 0.25s ease-in-out, height 0.25s, -webkit-transform 0.25s ease-in-out;
+    -webkit-transition: height 0.2s, -webkit-transform 0.2s ease-in-out;
+    transition: height 0.2s, -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, height 0.2s;
+    transition: transform 0.2s ease-in-out, height 0.2s, -webkit-transform 0.2s ease-in-out;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid white;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .site-nav-links > li {
+    margin-bottom: 2rem;
+  }
+  .site-nav-links > li:last-child {
+    margin-bottom: -0.75rem;
   }
   .site-nav[data-open] > .site-nav-links {
     -webkit-transform: scaleY(1);
