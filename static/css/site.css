@@ -817,17 +817,16 @@ h5 {
   padding: 4rem 0 3rem 0;
 }
 
-@media (max-width: 30rem) {
-  .site-nav[data-open] > .site-nav-button {
-    color: pink;
-  }
-  .site-nav[data-open] > .site-nav-links {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-    height: 100%;
-  }
+@media (max-width: 33rem) {
   .site-nav-button {
-    display: block;
+    float: right;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: center;
+            align-items: center;
     padding: 0;
     min-width: auto;
     min-height: auto;
@@ -835,9 +834,66 @@ h5 {
     border-radius: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
-    text-align: right;
-    font-size: 0.7rem;
-    float: right;
+  }
+  .site-nav-button .menu-text {
+    font-size: 0.8rem;
+    color: #D3CDC1;
+    margin-bottom: 0;
+  }
+  .site-nav-button:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transform: none;
+            transform: none;
+    color: white;
+  }
+  .site-nav-button:active .menu-text {
+    color: white;
+  }
+  .site-nav-button:active .menu-icon .line1,
+  .site-nav-button:active .menu-icon .line2,
+  .site-nav-button:active .menu-icon .line3,
+  .site-nav-button:active .menu-icon .line4,
+  .site-nav-button:active .menu-icon .line5,
+  .site-nav-button:active .menu-icon .line6 {
+    stroke: white;
+  }
+  .site-nav-button .menu-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 2rem;
+  }
+  .site-nav-button .menu-icon .line1 {
+    -webkit-transform-origin: top left;
+            transform-origin: top left;
+  }
+  .site-nav-button .menu-icon .line2 {
+    -webkit-transform-origin: top right;
+            transform-origin: top right;
+  }
+  .site-nav-button .menu-icon .line3,
+  .site-nav-button .menu-icon .line4 {
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
+  .site-nav-button .menu-icon .line5 {
+    -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
+  }
+  .site-nav-button .menu-icon .line6 {
+    -webkit-transform-origin: bottom right;
+            transform-origin: bottom right;
+  }
+  .site-nav-button .menu-icon .line1,
+  .site-nav-button .menu-icon .line2,
+  .site-nav-button .menu-icon .line3,
+  .site-nav-button .menu-icon .line4,
+  .site-nav-button .menu-icon .line5,
+  .site-nav-button .menu-icon .line6 {
+    -webkit-transition: -webkit-transform 0.25s ease-in-out;
+    transition: -webkit-transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
   }
   .site-nav-links {
     -webkit-transform: scaleY(0);
@@ -852,5 +908,31 @@ h5 {
     transition: height 0.25s, -webkit-transform 0.25s ease-in-out;
     transition: transform 0.25s ease-in-out, height 0.25s;
     transition: transform 0.25s ease-in-out, height 0.25s, -webkit-transform 0.25s ease-in-out;
+  }
+  .site-nav[data-open] > .site-nav-links {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    height: 100%;
+  }
+  .site-nav[data-open] .menu-icon .line1 {
+    -webkit-transform: translateX(14.15%) rotate(45deg);
+            transform: translateX(14.15%) rotate(45deg);
+  }
+  .site-nav[data-open] .menu-icon .line2 {
+    -webkit-transform: translateX(-14.15%) rotate(-45deg);
+            transform: translateX(-14.15%) rotate(-45deg);
+  }
+  .site-nav[data-open] .menu-icon .line3,
+  .site-nav[data-open] .menu-icon .line4 {
+    -webkit-transform: scaleX(0.25);
+            transform: scaleX(0.25);
+  }
+  .site-nav[data-open] .menu-icon .line5 {
+    -webkit-transform: translateX(14.15%) rotate(-45deg);
+            transform: translateX(14.15%) rotate(-45deg);
+  }
+  .site-nav[data-open] .menu-icon .line6 {
+    -webkit-transform: translateX(-14.15%) rotate(45deg);
+            transform: translateX(-14.15%) rotate(45deg);
   }
 }
