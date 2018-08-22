@@ -452,7 +452,7 @@ h1 {
 
 
 h2 {
-  font-size: 2.4em;
+  font-size: 3.5em;
   margin-top: 0.83em;
   margin-bottom: 0.83em;
 }
@@ -481,7 +481,7 @@ h5 {
 a {
   text-decoration-skip-ink: auto;
   display: inline;
-  color: #414A4D;
+  color: #5A666A;
   padding: 0;
   min-width: 0;
   min-height: 0;
@@ -492,7 +492,7 @@ a {
 }
 
 a:link {
-  color: #414A4D;
+  color: #5A666A;
 }
 
 a:visited {
@@ -532,18 +532,32 @@ button:active, summary:active {
   outline: none;
 }
 
-.hero, .site-nav-links {
+.carousel button > .description {
+  position: absolute !important;
+  top: auto !important;
+  left: -100vw !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+}
+
+.hero, .beer, .site-nav-links, .carousel, .carousel > .beer-images {
   display: -webkit-box;
   display: flex;
 }
 
-.hero {
+.hero, .beer {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
 }
 
-.site-nav-links {
+.site-nav-links, .carousel, .carousel > .beer-images {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
           flex-direction: row;
@@ -558,6 +572,10 @@ button:active, summary:active {
 
 h6 {
   font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #5A666A;
 }
 
 ul,
@@ -633,7 +651,7 @@ details[open] summary {
   width: calc(100% + (0.5rem * 2));
   margin-top: 0;
   margin-bottom: 0;
-  border-bottom: 0.0625rem solid #414A4D;
+  border-bottom: 0.0625rem solid #5A666A;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-left: -0.5rem;
@@ -659,7 +677,7 @@ td {
 }
 
 th[scope=col] {
-  border-bottom: 0.0625rem solid #414A4D;
+  border-bottom: 0.0625rem solid #5A666A;
 }
 
 img {
@@ -684,17 +702,17 @@ button[disabled] {
 hr {
   margin: 0.5rem 0;
   border: none;
-  border-top: 0.0625rem solid #414A4D;
+  border-top: 0.0625rem solid #5A666A;
 }
 
 input,
 textarea,
 select {
   font: 125%/1.5 "Merriweather", serif;
-  color: #333;
+  color: #89807A;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 0.0625rem solid #333;
+  border: 0.0625rem solid #89807A;
   border-radius: 0.25em;
   padding: 0.5rem 1rem;
   min-height: 3rem;
@@ -733,7 +751,7 @@ dialog {
 }
 
 html {
-  color: #333;
+  color: #89807A;
   font: 125%/1.5 "Merriweather", serif;
   overflow-wrap: break-word;
 }
@@ -750,10 +768,17 @@ h4,
 h5 {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
+  font-size: 1.25em;
+  line-height: 1.2;
   font-style: italic;
+  text-transform: uppercase;
+  color: #A3B9BF;
+  margin-top: 0;
 }
 
 .hero {
@@ -951,4 +976,104 @@ h5 {
     -webkit-transform: translateX(-14.15%) rotate(45deg);
             transform: translateX(-14.15%) rotate(45deg);
   }
+}
+
+.beer {
+  margin-top: 2rem;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.section-heading,
+.subtitle,
+.text-content {
+  text-align: center;
+  max-width: 37.5rem;
+}
+
+.carousel {
+  margin-top: 2rem;
+  max-width: 100%;
+  position: relative;
+}
+
+.carousel button {
+  position: absolute;
+  padding: 0;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  top: 1.25rem;
+  bottom: 2rem;
+  z-index: 1;
+}
+
+.carousel button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.carousel button:active {
+  -webkit-transform: none;
+          transform: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.carousel button > svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.carousel button.carousel-left {
+  left: 0;
+}
+
+.carousel button.carousel-right {
+  right: 0;
+}
+
+.carousel button.carousel-right > svg {
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+.carousel > .beer-images {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.carousel > .beer-images::before {
+  content: '';
+  position: absolute;
+  background: -webkit-gradient(linear, right top, left top, from(white), color-stop(20%, rgba(255, 255, 255, 0.5)), color-stop(30%, rgba(255, 255, 255, 0)), color-stop(70%, rgba(255, 255, 255, 0)), color-stop(80%, rgba(255, 255, 255, 0.5)), to(white));
+  background: linear-gradient(to left, white, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.5) 80%, white);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 1.5rem;
+}
+
+@media (max-width: 30rem) {
+  .carousel > .beer-images::before {
+    background: none;
+  }
+}
+
+.carousel > .beer-images h3 {
+  color: #89807A;
+  margin-top: 0.25rem;
+}
+
+.carousel > .beer-images .subtitle {
+  line-height: .5;
+  color: #AEA79E;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+}
+
+.carousel > .beer-images .alcohol {
+  font-size: .5em;
+}
+
+.carousel > .beer-images p {
+  white-space: nowrap;
 }

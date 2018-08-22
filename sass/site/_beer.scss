@@ -1,0 +1,106 @@
+.beer {
+	margin-top: 2rem;
+	@extend %column;
+	align-items: center;
+}
+
+.section-heading,
+.subtitle,
+.text-content {
+	text-align: center;
+	max-width: 37.5rem;
+}
+
+.carousel {
+	@extend %row;
+	margin-top: 2rem;
+	max-width: 100%;
+	position: relative;
+
+	& button {
+		position: absolute;
+		padding: 0;
+		background: transparent;
+		box-shadow: none;
+		top: 1.25rem;
+		bottom: 2rem;
+		z-index: 1;
+
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.05);
+		}
+
+		&:active {
+			transform: none;
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+
+		& > .description {
+			@extend %hide-visually;
+		}
+
+		& > svg {
+			height: 2rem;
+			width: 2rem;
+		}
+
+		&.carousel-left {
+			left: 0;
+		}
+
+		&.carousel-right {
+			right: 0;
+
+			& > svg {
+				transform: rotate(.5turn);
+			}
+		}
+	}
+
+	& > .beer-images {
+		@extend %row;
+		overflow-x: auto;
+		text-align: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			background: linear-gradient(to left,
+				rgba(255,255,255,1),
+				rgba(255,255,255,0.5) 20%,
+				rgba(255,255,255,0) 30%,
+				rgba(255,255,255,0) 70%,
+				rgba(255,255,255,0.5) 80%,
+				rgba(255,255,255,1)
+			);
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 1.5rem;
+
+			@media(max-width:30rem) {
+				background: none;
+			}
+		}
+
+		& h3 {
+			color: $colour-default;
+			margin-top: 0.25rem;
+		}
+
+		& .subtitle {
+			line-height: .5;
+			color: $colour-dark;
+			font-size: 1.5em;
+			margin-top: 0.5em;
+		}
+
+		& .alcohol {
+			font-size: .5em;
+		}
+
+		& p {
+			white-space: nowrap;
+		}
+	}
+}
