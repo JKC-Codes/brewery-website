@@ -812,37 +812,47 @@ figcaption {
 }
 
 .carousel > .beer-images {
-  -webkit-box-pack: center;
-          justify-content: center;
   overflow-x: auto;
   text-align: center;
   outline: none;
 }
 
-.carousel > .beer-images::before {
-  background: -webkit-gradient(linear, left top, right top, from(white), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
-  left: 0;
-  right: 70%;
-}
-
-.carousel > .beer-images::after {
-  background: -webkit-gradient(linear, right top, left top, from(white), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
-  right: 0;
-  left: 70%;
-}
-
-.carousel > .beer-images::before, .carousel > .beer-images::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 1.5rem;
-}
-
-@media (max-width: 30rem) {
+@media (min-width: 27.5rem) {
   .carousel > .beer-images::before, .carousel > .beer-images::after {
-    background: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 1.5rem;
+  }
+  .carousel > .beer-images::before {
+    background: -webkit-gradient(linear, left top, right top, from(white), color-stop(15%, white), to(rgba(255, 255, 255, 0)));
+    background: linear-gradient(to right, white, white 15%, rgba(255, 255, 255, 0));
+    left: 0;
+    right: 75%;
+  }
+  .carousel > .beer-images::after {
+    background: -webkit-gradient(linear, right top, left top, from(white), color-stop(15%, white), to(rgba(255, 255, 255, 0)));
+    background: linear-gradient(to left, white, white 15%, rgba(255, 255, 255, 0));
+    right: 0;
+    left: 75%;
+  }
+}
+
+@media (min-width: 45rem) {
+  .carousel > .beer-images::before {
+    right: 65%;
+  }
+  .carousel > .beer-images::after {
+    left: 65%;
+  }
+}
+
+@media (min-width: 60rem) {
+  .carousel > .beer-images::before {
+    right: 60%;
+  }
+  .carousel > .beer-images::after {
+    left: 60%;
   }
 }
 
