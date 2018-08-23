@@ -1,5 +1,4 @@
 .beer {
-	margin-top: 2rem;
 	@extend %column;
 	align-items: center;
 }
@@ -33,10 +32,10 @@
 		&:active {
 			transform: none;
 			background-color: rgba(0, 0, 0, 0.1);
-		}
 
-		& > .description {
-			@extend %hide-visually;
+			& > svg {
+				filter: brightness(150%) saturate(0);
+			}
 		}
 
 		& > svg {
@@ -61,26 +60,45 @@
 		@extend %row;
 		overflow-x: auto;
 		text-align: center;
+		outline: none;
 
 		&::before {
-			content: '';
-			position: absolute;
-			background: linear-gradient(to left,
+			background: linear-gradient(to right,
 				rgba(255,255,255,1),
-				rgba(255,255,255,0.5) 20%,
-				rgba(255,255,255,0) 30%,
-				rgba(255,255,255,0) 70%,
-				rgba(255,255,255,0.5) 80%,
-				rgba(255,255,255,1)
+				rgba(255,255,255,0)
 			);
 			left: 0;
+			right: 70%;
+		}
+
+		&::after {
+			background: linear-gradient(to left,
+			rgba(255,255,255,1),
+			rgba(255,255,255,0)
+			);
 			right: 0;
+			left: 70%;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
 			top: 0;
 			bottom: 1.5rem;
 
 			@media(max-width:30rem) {
 				background: none;
 			}
+		}
+
+		&.noscript::before,
+		&.noscript::after {
+			background: none;
+		}
+
+		figure {
+			min-width: 9.5rem;
 		}
 
 		& h3 {

@@ -4,6 +4,17 @@
 	box-sizing: border-box;
 }
 
+html {
+	color: $colour-default;
+	font: $font-default;
+	overflow-wrap: break-word;
+	scroll-behavior: smooth;
+}
+
+body > * {
+	padding: 0 1rem;
+}
+
 h1 {
 	@extend %h1;
 }
@@ -28,8 +39,17 @@ h6 {
 	font-size: 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: $colour-brand;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	line-height: 1;
+	margin-bottom: 0.5rem;
 }
 
 a {

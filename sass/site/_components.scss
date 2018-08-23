@@ -1,26 +1,8 @@
-html {
-	color: $colour-default;
-	font: $font-default;
-	overflow-wrap: break-word;
-}
-
-body > * {
-	padding: 0 1rem;
-}
-
-.subtitle,
-h1,
-h2,
-h3,
-h4,
-h5 {
+.subtitle {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
 	line-height: 1;
 	margin-bottom: 0.5rem;
-}
-
-.subtitle {
 	font-size: 1.25em;
 	line-height: 1.2;
 	font-style: italic;
