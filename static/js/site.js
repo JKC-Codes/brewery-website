@@ -1,48 +1,135 @@
-document.addEventListener('DOMContentLoaded', init, {once:true});
+document.addEventListener('DOMContentLoaded', function() {
+	siteNav.initialise();
+	carousel.initialise();
+}, {once:true});
 
-// Declare DOM variables
-var siteNavButton
-var siteNav;
-var menuStateText;
-var siteNavLinks;
+/*
+==========
+Site navigation menu
+==========
+*/
+var siteNav = {
+	initialise: function() {
+		// Define DOM objects
+		siteNav.element = document.querySelector('#site-nav');
+		siteNav.button = document.querySelector('#site-nav-button');
+		siteNav._buttonText = document.querySelector('#menu-state-text');
+		siteNav.links = document.querySelector('#site-nav-links');
 
-// Declare variables
-var heroMediaQuery = window.matchMedia("(max-width: 33rem)");
+		// Toggle site navigation menu on click
+		siteNav.button.addEventListener('click', siteNav.toggle);
 
-function init() {
-	// Initialise DOM variables
-	siteNavButton = document.querySelector('#site-nav-button');
-	siteNav = document.querySelector('#site-nav');
-	menuStateText = document.querySelector('#menu-state-text');
-	siteNavLinks = document.querySelector('#site-nav-links');
+		// Show nav on wide screens
+		let mediaQuery = window.matchMedia("(max-width: 33rem)");
+		mediaQuery.addListener(siteNav.showOnWideScreens);
+		siteNav.showOnWideScreens(mediaQuery);
+	},
 
-	// Activate nav menu
-	siteNavButton.addEventListener('click', toggleNavMenu);
+	// Set and return whether menu is open
+	_open: false,
+	get open() {
+		return siteNav._open;
+	},
+	set open(boolean) {
+		siteNav.element.setAttribute('data-open', boolean);
+		siteNav._open = boolean;
+	},
 
-	// Listen for width changes
-	heroMediaQuery.addListener(heroViewportChange);
-}
+	// Set and return menu text
+	get buttonText() {
+		return siteNav._buttonText.textContent;
+	},
+	set buttonText(text) {
+		siteNav._buttonText.textContent = text;
+	},
 
-function toggleNavMenu() {
-	siteNavLinks.removeAttribute('style');
-	setTimeout(function() {
-		if(siteNav.hasAttribute('data-open')) {
-			siteNav.removeAttribute('data-open');
-			menuStateText.textContent = 'Open';
-			siteNav.addEventListener('transitionend', function() {
-				siteNavLinks.style.display = 'none';
-			},{once:true});
+	// Toggle menu opening and closing
+	toggle: function() {
+		siteNav.links.removeAttribute('style');
+		setTimeout(function() {
+			if(siteNav.open) {
+				siteNav.open = false;
+				siteNav.buttonText = 'Open';
+				siteNav.element.addEventListener('transitionend', function() {
+					if(siteNav.open) return;
+					siteNav.links.style.display = 'none';
+				},{once:true});
+			} else {
+				siteNav.open = true;
+				siteNav.buttonText = 'Close';
+			}
+		}, 10);
+	},
+
+	// Show nav on wide screens
+	showOnWideScreens: function(mq) {
+		if(mq.matches && !siteNav.open) {
+			// Prevent animation and tabbing on narrow page load
+			siteNav.links.style.display = 'none';
 		} else {
-			siteNav.setAttribute('data-open', '');
-			menuStateText.textContent = 'Close';
+			// Remove display:none on wide screens
+			siteNav.links.removeAttribute('style');
 		}
-	}, 10);
+	}
 }
 
-function heroViewportChange(mq) {
-	if(mq.matches && !siteNav.hasAttribute('data-open')) {
-		siteNavLinks.style.display = 'none';
-	} else {
-		siteNavLinks.removeAttribute('style');
+
+/*
+==========
+Beer Carousel
+==========
+*/
+var carousel = {
+	initialise: function() {
+		// Define DOM objects
+		carousel.element = document.querySelector('#beer-images');
+		carousel.beers = carousel.element.querySelectorAll('figure');
+		carousel.buttonLeft = document.querySelector('#carousel-left');
+		carousel.buttonRight = document.querySelector('#carousel-right');
+
+		// Remove scrollbar
+		carousel.element.style.overflowX = "hidden";
+		carousel.element.setAttribute('tabindex', '-1');
+
+		// Show fade
+		carousel.element.classList.remove('noscript');
+
+		// Highlight initial beer
+		carousel.changeSpotlight();
+
+		// Scroll beer carousel on button click
+		carousel.buttonLeft.addEventListener('click', function() {
+			carousel.spotlight--;
+		});
+		carousel.buttonRight.addEventListener('click', function() {
+			carousel.spotlight++;
+		});
+	},
+
+	// Set and return spotlight beer
+	_spotlightIndex: 2,
+	get spotlight() {
+		return carousel._spotlightIndex;
+	},
+	set spotlight(index) {
+		if(index >= carousel.beers.length) {
+			index = 0;
+		} else if(index < 0) {
+			index = carousel.beers.length-1;
+		}
+		carousel._spotlightIndex = index;
+		carousel.changeSpotlight();
+	},
+
+	changeSpotlight: function() {
+		// Remove text from beers not in the spotlight
+		for(let i = 0; i < carousel.beers.length; i++) {
+			let beer = carousel.beers[i].querySelector('figcaption');
+			if(i === carousel.spotlight) {
+				beer.removeAttribute('style');
+			} else {
+				beer.style.opacity = '0';
+			}
+		}
 	}
 }
