@@ -988,6 +988,7 @@ section.mission > img {
   }
   section.mission > p {
     grid-row: 4/5;
+    margin-top: 0;
   }
   section.mission > a {
     grid-row: 5/6;
