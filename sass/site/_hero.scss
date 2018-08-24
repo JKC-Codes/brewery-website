@@ -4,7 +4,7 @@
 	background: url("../img/hero-bg.jpg") center/cover  no-repeat;
 	padding: 0 1rem 5rem 1rem;
 	text-align: center;
-	color: $colour-light;
+	color: $colour-alt-light;
 	margin-bottom: 2rem;
 
 	& > * {
@@ -44,11 +44,11 @@
 	}
 
 	& a {
-		color: $colour-light;
+		color: $colour-alt-light;
 		text-decoration: none;
 
 		&:hover {
-			color: $colour-alt;
+			color: $colour-brand-light;
 			text-decoration: underline;
 		}
 	}
