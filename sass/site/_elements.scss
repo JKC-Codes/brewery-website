@@ -1,16 +1,3 @@
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
-html {
-	color: $colour-default;
-	font: $font-default;
-	overflow-wrap: break-word;
-	scroll-behavior: smooth;
-}
-
 h1 {
 	@extend %h1;
 }

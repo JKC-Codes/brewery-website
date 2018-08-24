@@ -1,0 +1,18 @@
+section.mission {
+	grid-column: 1/-1;
+
+	@media(min-width: 25rem) {
+		grid-column: 3/-3;
+	}
+}
+
+.mission .callout {
+	position: relative;
+	@include callout();
+}
+
+.mission img {
+	position: absolute;
+	top: 0;
+	right: 0;
+}

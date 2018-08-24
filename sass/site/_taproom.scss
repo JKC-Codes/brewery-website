@@ -1,0 +1,7 @@
+section.taproom, {
+	grid-column: 1/-1;
+
+	@media(min-width: 25rem) {
+		grid-column: 3/-3;
+	}
+}

@@ -1,4 +1,5 @@
 .hero {
+	grid-column: 1/-1;
 	@extend %column;
 	align-items: center;
 	background: url("../img/hero-bg.jpg") center/cover  no-repeat;

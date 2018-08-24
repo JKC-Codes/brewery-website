@@ -1,0 +1,7 @@
+section.brewery {
+	grid-column: 2/-2;
+
+	@media(min-width: 25rem) {
+		grid-column: 1/-2;
+	}
+}

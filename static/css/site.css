@@ -462,22 +462,27 @@ h3 {
   margin-bottom: 1em;
 }
 
-button {
+button, .mission .callout a:link {
   cursor: pointer;
   border: none;
-  padding: 0.75rem 2.5rem;
+  padding: 0.5rem 2.5rem;
   min-width: 3rem;
-  min-height: 3rem;
+  min-height: 2rem;
   background-color: #D3CDC1;
-  color: #fff;
-  border-radius: 0.25em;
-  -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
+  color: #414A4D;
+  border-radius: 0.5em;
   display: inline-block;
   text-align: center;
 }
 
-button:active {
+.mission .callout a:link,
+.mission .callout a:visited:link,
+.mission .callout a:link {
+  color: #414A4D;
+  text-decoration: none;
+}
+
+button:active, .mission .callout a:active:link {
   -webkit-transform: translate(0.0625rem, 0.0625rem);
           transform: translate(0.0625rem, 0.0625rem);
   -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
@@ -500,20 +505,6 @@ button:active {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
           flex-direction: row;
-}
-
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-html {
-  color: #89807A;
-  font: 125%/1.5 "Merriweather", serif;
-  overflow-wrap: break-word;
-  scroll-behavior: smooth;
 }
 
 h1,
@@ -547,31 +538,54 @@ figcaption {
   margin-top: 0;
 }
 
+.mission .callout {
+  padding: 2.8rem;
+  outline: 0.2rem solid #A3B9BF;
+  outline-offset: -1.5rem;
+}
+
+.mission .callout h2 {
+  margin: 0;
+}
+
+.mission .callout .subtitle {
+  margin-bottom: 1.5rem;
+}
+
+.mission .callout p {
+  margin-bottom: 1.5rem;
+}
+
+.mission .callout a:link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
+  color: #89807A;
+  font: 125%/1.5 "Merriweather", serif;
+  overflow-wrap: break-word;
+  scroll-behavior: smooth;
   display: grid;
   grid-template-columns: 1rem 1fr minmax(auto, 60rem) 1fr 1rem;
 }
 
-section.hero {
-  grid-column: 1/-1;
-}
-
-section.beer {
-  grid-column: 2/-2;
-  width: 100%;
-}
-
-section.mission,
-section.room,
-body > footer {
-  grid-column: 3/-3;
-}
-
-section.brewery {
-  grid-column: 1/-2;
+@media (max-width: 25rem) {
+  body {
+    font-size: 100%;
+  }
 }
 
 .hero {
+  grid-column: 1/-1;
   -webkit-box-align: center;
           align-items: center;
   background: url("../img/hero-bg.jpg") center/cover no-repeat;
@@ -658,7 +672,7 @@ section.brewery {
             box-shadow: none;
   }
   .site-nav-button .menu-text {
-    font-size: 0.8rem;
+    font-size: 0.8em;
     color: #D3CDC1;
     margin-bottom: 0;
   }
@@ -770,13 +784,15 @@ section.brewery {
 }
 
 .beer {
+  grid-column: 2/-2;
+  width: 100%;
   -webkit-box-align: center;
           align-items: center;
 }
 
-.section-heading,
-.subtitle,
-.text-content {
+.beer .section-heading,
+.beer .subtitle,
+.beer .text-content {
   text-align: center;
   max-width: 37.5rem;
 }
@@ -892,4 +908,62 @@ section.brewery {
 
 .carousel > .beer-images p {
   white-space: nowrap;
+}
+
+section.mission {
+  grid-column: 1/-1;
+}
+
+@media (min-width: 25rem) {
+  section.mission {
+    grid-column: 3/-3;
+  }
+}
+
+.mission .callout {
+  position: relative;
+  background: #414A4D;
+  color: #A3B9BF;
+}
+
+.mission .callout h2 {
+  color: white;
+}
+
+.mission .callout p {
+  color: #A3B9BF;
+}
+
+.mission .callout a {
+  background-color: #AEA79E;
+}
+
+.mission img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+section.brewery {
+  grid-column: 2/-2;
+}
+
+@media (min-width: 25rem) {
+  section.brewery {
+    grid-column: 1/-2;
+  }
+}
+
+section.taproom {
+  grid-column: 1/-1;
+}
+
+@media (min-width: 25rem) {
+  section.taproom {
+    grid-column: 3/-3;
+  }
+}
+
+body > footer {
+  grid-column: 3/-3;
 }
