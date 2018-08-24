@@ -40,7 +40,7 @@ section.mission {
 		max-width: 100%;
 		background: none;
 		outline: none;
-		outline-offset: none;
+		outline-offset: 0;
 
 		&::before {
 			content: '';

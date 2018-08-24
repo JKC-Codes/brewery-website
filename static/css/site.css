@@ -961,7 +961,7 @@ section.mission > img {
     max-width: 100%;
     background: none;
     outline: none;
-    outline-offset: none;
+    outline-offset: 0;
     grid-template: 2.8rem repeat(4, auto) 2.8rem minmax(2rem, 0.75fr)/2.8rem 11fr 2fr 2.8rem 7fr;
     grid-column-gap: 2rem;
   }
