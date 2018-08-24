@@ -30,6 +30,7 @@ var siteNav = {
 	get open() {
 		return siteNav._open;
 	},
+
 	set open(boolean) {
 		siteNav.element.setAttribute('data-open', boolean);
 		siteNav._open = boolean;
@@ -39,6 +40,7 @@ var siteNav = {
 	get buttonText() {
 		return siteNav._buttonText.textContent;
 	},
+
 	set buttonText(text) {
 		siteNav._buttonText.textContent = text;
 	},
@@ -94,8 +96,8 @@ var carousel = {
 		// Show fade
 		carousel.element.classList.remove('noscript');
 
-		// Highlight initial beer
-		carousel.changeSpotlight();
+		// Highlight middle beer
+		carousel.setInitialSpotlight();
 
 		// Scroll beer carousel on button click
 		carousel.buttonLeft.addEventListener('click', function() {
@@ -107,29 +109,44 @@ var carousel = {
 	},
 
 	// Set and return spotlight beer
-	_spotlightIndex: 2,
+	_spotlightIndex: 0,
 	get spotlight() {
 		return carousel._spotlightIndex;
 	},
+
 	set spotlight(index) {
-		if(index >= carousel.beers.length) {
-			index = 0;
-		} else if(index < 0) {
-			index = carousel.beers.length-1;
+		index = index % carousel.beers.length
+		if(index < 0) {
+			index = carousel.beers.length - 1;
 		}
 		carousel._spotlightIndex = index;
 		carousel.changeSpotlight();
 	},
 
+	setInitialSpotlight: function() {
+		let numberOfBeers = carousel.beers.length;
+		let middleBeer = Math.ceil((numberOfBeers -1) / 2);
+		carousel._spotlightIndex = middleBeer;
+		carousel.initialSpotlightIndex = middleBeer;
+		carousel.changeSpotlight();
+	},
+	initialSpotlightIndex: 0,
+
 	changeSpotlight: function() {
-		// Remove text from beers not in the spotlight
 		for(let i = 0; i < carousel.beers.length; i++) {
-			let beer = carousel.beers[i].querySelector('figcaption');
+			let beer = carousel.beers[i];
+			let caption = beer.querySelector('figcaption');
+			let offset = carousel.spotlight - carousel.initialSpotlightIndex;
+			let translate = -14 * offset;
+
+			// Show text only for spotlight beer
 			if(i === carousel.spotlight) {
-				beer.removeAttribute('style');
+				caption.removeAttribute('style');
 			} else {
-				beer.style.opacity = '0';
+				caption.style.opacity = '0';
 			}
+			// Scroll spotlight beer into middle;
+			beer.style.transform = 'translateX(' + translate + 'rem)';
 		}
 	}
 }
