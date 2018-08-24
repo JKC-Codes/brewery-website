@@ -1,0 +1,23 @@
+body {
+	display: grid;
+	grid-template-columns: 1rem 1fr minmax(auto, 60rem) 1fr 1rem;
+}
+
+section.hero {
+	grid-column: 1/-1;
+}
+
+section.beer {
+	grid-column: 2/-2;
+	width: 100%;
+}
+
+section.mission,
+section.room,
+body > footer {
+	grid-column: 3/-3;
+}
+
+section.brewery {
+	grid-column: 1/-2;
+}
