@@ -962,7 +962,7 @@ section.mission > img {
     background: none;
     outline: none;
     outline-offset: 0;
-    grid-template: 2.8rem repeat(4, auto) 2.8rem minmax(2rem, 0.75fr)/2.8rem 11fr 2fr 2.8rem 7fr;
+    grid-template: 2.8rem repeat(4, auto) 2.8rem minmax(2rem, 0.5fr)/2.8rem 11fr 2fr 2.8rem 7fr;
     grid-column-gap: 2rem;
   }
   section.mission::before {
