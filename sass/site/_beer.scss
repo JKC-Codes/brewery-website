@@ -63,55 +63,33 @@
 		text-align: center;
 		outline: none;
 
-		@media(min-width:27.5rem) {
-			&::before,
-			&::after {
-				content: '';
-				position: absolute;
-				top: 0;
-				bottom: 1.5rem;
-				z-index: 1;
-			}
-
-			&::before {
-				background: linear-gradient(to right,
-					rgba(255,255,255,1),
-					rgba(255,255,255,1) 15%,
-					rgba(255,255,255,0)
-				);
-				left: 0;
-				right: 75%;
-			}
-
-			&::after {
-				background: linear-gradient(to left,
-				rgba(255,255,255,1),
-				rgba(255,255,255,1) 15%,
-				rgba(255,255,255,0)
-				);
-				right: 0;
-				left: 75%;
-			}
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 1.5rem;
+			z-index: 1;
 		}
 
-		@media(min-width:45rem) {
-			&::before {
-				right: 65%;
-			}
-
-			&::after {
-				left: 65%;
-			}
+		&::before {
+			background: linear-gradient(to right,
+			rgba(255,255,255,1),
+			rgba(255,255,255,0.5) 75%,
+			rgba(255,255,255,0)
+			);
+			right: calc(50% + 7rem);
+			left: 0;
 		}
 
-		@media(min-width:60rem) {
-			&::before {
-				right: 60%;
-			}
-
-			&::after {
-				left: 60%;
-			}
+		&::after {
+			background: linear-gradient(to left,
+			rgba(255,255,255,1),
+			rgba(255,255,255,0.5) 75%,
+			rgba(255,255,255,0)
+			);
+			right: 0;
+			left: calc(50% + 7rem);
 		}
 
 		&.noscript::before,

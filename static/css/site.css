@@ -839,44 +839,26 @@ section.brewery {
   outline: none;
 }
 
-@media (min-width: 27.5rem) {
-  .carousel > .beer-images::before, .carousel > .beer-images::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 1.5rem;
-    z-index: 1;
-  }
-  .carousel > .beer-images::before {
-    background: -webkit-gradient(linear, left top, right top, from(white), color-stop(15%, white), to(rgba(255, 255, 255, 0)));
-    background: linear-gradient(to right, white, white 15%, rgba(255, 255, 255, 0));
-    left: 0;
-    right: 75%;
-  }
-  .carousel > .beer-images::after {
-    background: -webkit-gradient(linear, right top, left top, from(white), color-stop(15%, white), to(rgba(255, 255, 255, 0)));
-    background: linear-gradient(to left, white, white 15%, rgba(255, 255, 255, 0));
-    right: 0;
-    left: 75%;
-  }
+.carousel > .beer-images::before, .carousel > .beer-images::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 1.5rem;
+  z-index: 1;
 }
 
-@media (min-width: 45rem) {
-  .carousel > .beer-images::before {
-    right: 65%;
-  }
-  .carousel > .beer-images::after {
-    left: 65%;
-  }
+.carousel > .beer-images::before {
+  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(75%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0));
+  right: calc(50% + 7rem);
+  left: 0;
 }
 
-@media (min-width: 60rem) {
-  .carousel > .beer-images::before {
-    right: 60%;
-  }
-  .carousel > .beer-images::after {
-    left: 60%;
-  }
+.carousel > .beer-images::after {
+  background: -webkit-gradient(linear, right top, left top, from(white), color-stop(75%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to left, white, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0));
+  right: 0;
+  left: calc(50% + 7rem);
 }
 
 .carousel > .beer-images.noscript::before, .carousel > .beer-images.noscript::after {
