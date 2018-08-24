@@ -867,6 +867,10 @@ figcaption {
 .carousel > .beer-images figure {
   width: 10rem;
   flex-shrink: 0;
+  -webkit-transition: -webkit-transform 0.125s ease-in-out;
+  transition: -webkit-transform 0.125s ease-in-out;
+  transition: transform 0.125s ease-in-out;
+  transition: transform 0.125s ease-in-out, -webkit-transform 0.125s ease-in-out;
 }
 
 .carousel > .beer-images h3 {
