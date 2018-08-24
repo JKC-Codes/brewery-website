@@ -10,3 +10,47 @@
 	color: $colour-brand-light;
 	margin-top: 0;
 }
+
+%callout-base {
+	h2 {
+		margin: 0;
+	}
+
+	.subtitle {
+		margin-bottom: 1.5rem;
+	}
+
+	p {
+		margin-bottom: 1.5rem;
+	}
+
+	a:link {
+		@extend %button;
+	}
+}
+
+%callout {
+	color: $colour-brand-light;
+
+	h2 {
+		color: white;
+	}
+
+	@extend %callout-base;
+}
+
+%callout-alt {
+	color: $colour-default;
+
+	h2 {
+		color: $colour-brand;
+	}
+
+	a:link:first-of-type {
+		color: $colour-brand-dark;
+		background-color: white;
+		border: 0.15rem solid $colour-brand-dark;
+	}
+
+	@extend %callout-base;
+}

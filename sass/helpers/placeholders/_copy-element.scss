@@ -23,15 +23,17 @@
 }
 
 %button {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	text-transform: uppercase;
 	cursor: pointer;
 	border: none;
-	padding: 0.75rem $indent;
+	padding: 0.5rem 4rem;
 	min-width: 3rem;
-	min-height: 3rem;
+	min-height: 2rem;
 	background-color: $colour-alt-light;
-	color: #fff;
+	color: $colour-brand-dark;
 	border-radius: $border-rounded;
-	box-shadow: $shadow-default;
 	display: inline-block;
 	text-align: center;
 
@@ -43,6 +45,6 @@
 a%button,
 a:visited%button,
 a:link%button {
-	color: #fff;
+	color: $colour-brand-dark;
 	text-decoration: none;
 }

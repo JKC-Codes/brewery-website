@@ -462,10 +462,13 @@ h3 {
   margin-bottom: 1em;
 }
 
-button, .mission .callout a:link {
+button, section.mission a:link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
   cursor: pointer;
   border: none;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 4rem;
   min-width: 3rem;
   min-height: 2rem;
   background-color: #D3CDC1;
@@ -475,16 +478,18 @@ button, .mission .callout a:link {
   text-align: center;
 }
 
-.mission .callout a:link,
-.mission .callout a:visited:link,
-.mission .callout a:link {
+section.mission a:link,
+section.mission a:visited:link,
+section.mission a:link {
   color: #414A4D;
   text-decoration: none;
 }
 
-button:active, .mission .callout a:active:link {
-  -webkit-transform: translate(0.0625rem, 0.0625rem);
-          transform: translate(0.0625rem, 0.0625rem);
+button:active, section.mission a:active:link {
+  -webkit-transform: translate(0.01rem, 0.01rem);
+          transform: translate(0.01rem, 0.01rem);
+  -webkit-filter: contrast(90%);
+          filter: contrast(90%);
   -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
   outline: none;
@@ -538,28 +543,24 @@ figcaption {
   margin-top: 0;
 }
 
-.mission .callout {
-  padding: 2.8rem;
-  outline: 0.2rem solid #A3B9BF;
-  outline-offset: -1.5rem;
-}
-
-.mission .callout h2 {
+section.mission h2 {
   margin: 0;
 }
 
-.mission .callout .subtitle {
+section.mission .subtitle {
   margin-bottom: 1.5rem;
 }
 
-.mission .callout p {
+section.mission p {
   margin-bottom: 1.5rem;
 }
 
-.mission .callout a:link {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
+section.mission {
+  color: #A3B9BF;
+}
+
+section.mission h2 {
+  color: white;
 }
 
 *,
@@ -575,13 +576,19 @@ body {
   overflow-wrap: break-word;
   scroll-behavior: smooth;
   display: grid;
-  grid-template-columns: 1rem 1fr minmax(auto, 60rem) 1fr 1rem;
+  grid-template-columns: 1rem 1fr minmax(auto, 70rem) 1fr 1rem;
+  justify-items: center;
 }
 
 @media (max-width: 25rem) {
   body {
     font-size: 100%;
   }
+}
+
+body > * {
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .hero {
@@ -592,7 +599,6 @@ body {
   padding: 0 1rem 5rem 1rem;
   text-align: center;
   color: #D3CDC1;
-  margin-bottom: 2rem;
 }
 
 .hero > * {
@@ -785,7 +791,6 @@ body {
 
 .beer {
   grid-column: 2/-2;
-  width: 100%;
   -webkit-box-align: center;
           align-items: center;
 }
@@ -798,7 +803,7 @@ body {
 }
 
 .carousel {
-  margin-top: 2rem;
+  margin-top: 1rem;
   max-width: 100%;
   position: relative;
 }
@@ -912,36 +917,86 @@ body {
 
 section.mission {
   grid-column: 1/-1;
+  margin-top: 2rem;
+  background: #414A4D;
+  outline: 0.2rem solid #A3B9BF;
+  outline-offset: -1.5rem;
+  max-width: 37.5rem;
+  display: grid;
+  justify-items: start;
+  grid-template: 2.8rem repeat(5, auto) 2.8rem/2.8rem 1fr 2.8rem;
 }
 
-@media (min-width: 25rem) {
+section.mission > * {
+  grid-column: 2/-2;
+}
+
+section.mission > h2 {
+  grid-row-start: 2;
+}
+
+section.mission > .subtitle {
+  grid-row-start: 3;
+}
+
+section.mission > img {
+  grid-row-start: 4;
+}
+
+section.mission > p {
+  grid-row-start: 5;
+}
+
+section.mission > a {
+  grid-row-start: 6;
+}
+
+section.mission > img {
+  max-height: 20rem;
+}
+
+@media (min-width: 59rem) {
   section.mission {
     grid-column: 3/-3;
+    max-width: 100%;
+    background: none;
+    outline: none;
+    outline-offset: none;
+    grid-template: 2.8rem repeat(4, auto) 2.8rem minmax(2rem, 0.75fr)/2.8rem 11fr 2fr 2.8rem 7fr;
+    grid-column-gap: 2rem;
   }
-}
-
-.mission .callout {
-  position: relative;
-  background: #414A4D;
-  color: #A3B9BF;
-}
-
-.mission .callout h2 {
-  color: white;
-}
-
-.mission .callout p {
-  color: #A3B9BF;
-}
-
-.mission .callout a {
-  background-color: #AEA79E;
-}
-
-.mission img {
-  position: absolute;
-  top: 0;
-  right: 0;
+  section.mission::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    grid-area: 1/1/-2/-2;
+    background: #414A4D;
+    outline: 0.2rem solid #A3B9BF;
+    outline-offset: -1.5rem;
+  }
+  section.mission > h2,
+  section.mission > p,
+  section.mission > a {
+    grid-column: 2/3;
+  }
+  section.mission > h2 {
+    grid-row: 2/3;
+    align-self: end;
+  }
+  section.mission > p.subtitle {
+    grid-row: 3/4;
+  }
+  section.mission > p {
+    grid-row: 4/5;
+  }
+  section.mission > a {
+    grid-row: 5/6;
+  }
+  section.mission > img {
+    grid-area: 2/3/-1/-1;
+    margin-top: 2rem;
+    max-height: 100%;
+  }
 }
 
 section.brewery {

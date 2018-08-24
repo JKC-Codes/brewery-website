@@ -1,5 +1,6 @@
 %active-element {
-	transform: translate(0.0625rem, 0.0625rem);
+	transform: translate(0.01rem, 0.01rem);
+	filter: contrast(90%);
 	box-shadow: $shadow-default;
 	outline: none;
 }

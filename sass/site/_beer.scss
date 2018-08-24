@@ -1,6 +1,5 @@
 .beer {
 	grid-column: 2/-2;
-	width: 100%;
 	@extend %column;
 	align-items: center;
 
@@ -14,7 +13,7 @@
 
 .carousel {
 	@extend %row;
-	margin-top: 2rem;
+	margin-top: 1rem;
 	max-width: 100%;
 	position: relative;
 
