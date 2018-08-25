@@ -462,7 +462,7 @@ h3 {
   margin-bottom: 1em;
 }
 
-button, section.mission a:link {
+button, section.mission a:link, section.brewery > a {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
@@ -478,14 +478,16 @@ button, section.mission a:link {
   text-align: center;
 }
 
-section.mission a:link,
+section.mission a:link, section.brewery > a,
 section.mission a:visited:link,
-section.mission a:link {
+section.brewery > a:visited,
+section.mission a:link,
+section.brewery > a:link {
   color: #414A4D;
   text-decoration: none;
 }
 
-button:active, section.mission a:active:link {
+button:active, section.mission a:active:link, section.brewery > a:active {
   -webkit-transform: translate(0.01rem, 0.01rem);
           transform: translate(0.01rem, 0.01rem);
   -webkit-filter: contrast(90%);
@@ -576,7 +578,7 @@ body {
   overflow-wrap: break-word;
   scroll-behavior: smooth;
   display: grid;
-  grid-template-columns: 1rem 1fr minmax(auto, 70rem) 1fr 1rem;
+  grid-template-columns: 1rem 2fr minmax(auto, 70rem) 1fr 1fr 1rem;
   justify-items: center;
 }
 
@@ -957,7 +959,7 @@ section.mission > img {
 
 @media (min-width: 59rem) {
   section.mission {
-    grid-column: 3/-3;
+    grid-column: 3/-4;
     max-width: 100%;
     background: none;
     outline: none;
@@ -1002,11 +1004,32 @@ section.mission > img {
 
 section.brewery {
   grid-column: 2/-2;
+  margin-top: 2rem;
 }
 
-@media (min-width: 25rem) {
+section.brewery > h2 {
+  margin-top: 2rem;
+}
+
+section.brewery > img {
+  max-height: 20rem;
+}
+
+@media (min-width: 59rem) {
   section.brewery {
-    grid-column: 1/-2;
+    grid-column: 1/-3;
+    display: grid;
+    grid-template: repeat(5, auto) 2rem/2fr 3fr;
+    grid-column-gap: 3rem;
+    justify-items: start;
+  }
+  section.brewery > img {
+    justify-self: end;
+    height: 100%;
+    max-height: 100%;
+    grid-row: 1/-1;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 

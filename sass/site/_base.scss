@@ -10,7 +10,7 @@ body {
 	overflow-wrap: break-word;
 	scroll-behavior: smooth;
 	display: grid;
-	grid-template-columns: 1rem 1fr minmax(auto, 70rem) 1fr 1rem;
+	grid-template-columns: 1rem 2fr minmax(auto, 70rem) 1fr 1fr 1rem;
 	justify-items: center;
 
 	@media(max-width: 25rem) {

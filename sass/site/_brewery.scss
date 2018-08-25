@@ -1,7 +1,35 @@
 section.brewery {
 	grid-column: 2/-2;
+	margin-top: 2rem;
+	// max-width: 100rem;
 
-	@media(min-width: 25rem) {
-		grid-column: 1/-2;
+	& > h2 {
+		margin-top: 2rem;
+	}
+
+	& > img {
+		max-height: 20rem;
+	}
+
+	& > a {
+		@extend %button;
+	}
+
+	@media(min-width: 59rem) {
+		grid-column: 1/-3;
+		display: grid;
+		grid-template:
+		repeat(5, auto) 2rem /
+			2fr 3fr;
+		grid-column-gap: 3rem;
+		justify-items: start;
+
+		& > img {
+			justify-self: end;
+			height: 100%;
+			max-height: 100%;
+			grid-row: 1/-1;
+			object-fit: cover;
+		}
 	}
 }
