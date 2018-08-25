@@ -1,10 +1,3 @@
-document.onreadystatechange = function() {
-	if (document.readyState === 'interactive') {
-		siteNav.initialise();
-		carousel.initialise();
-	}
-};
-
 /*
 ==========
 Site navigation menu
@@ -151,4 +144,21 @@ var carousel = {
 			beer.style.transform = 'translateX(' + translate + 'rem)';
 		}
 	}
+}
+
+
+/*
+==========
+Start scripts on page load
+==========
+*/
+function init() {
+	siteNav.initialise();
+	carousel.initialise();
+}
+
+if(document.readyState !== 'loading') {
+	init();
+} else {
+	document.addEventListener('DOMContentLoaded', init());
 }
