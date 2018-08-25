@@ -6,5 +6,6 @@
 	"relativeURLs": true,
 	"defaultContentLanguage": "en-GB",
 	"languageCode": "en-GB",
-	"title": "The Brewery"
+	"title": "The Brewery",
+	"publishDir": "docs"
 }

@@ -1,7 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', init, {once: true});
+
+function init() {
+	console.log('init run');
+	console.log(document.readyState);
 	siteNav.initialise();
 	carousel.initialise();
-}, {once: true});
+}
 
 /*
 ==========
@@ -28,6 +32,7 @@ var siteNav = {
 	// Set and return whether menu is open
 	_open: false,
 	get open() {
+		console.log('open fetched');
 		return siteNav._open;
 	},
 
@@ -124,6 +129,8 @@ var carousel = {
 	},
 
 	setInitialSpotlight: function() {
+		console.log('setting initial spotlight');
+		console.log(document.readyState);
 		let numberOfBeers = carousel.beers.length;
 		let middleBeer = Math.ceil((numberOfBeers -1) / 2);
 		carousel._spotlightIndex = middleBeer;
