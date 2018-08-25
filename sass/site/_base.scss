@@ -9,6 +9,10 @@ body {
 	font: $font-default;
 	overflow-wrap: break-word;
 	scroll-behavior: smooth;
+	// IE fallback
+	@extend %column;
+	align-items: center;
+	// End IE fallback
 	display: grid;
 	grid-template-columns: 1rem 1fr minmax(auto, 70rem) 1fr 1rem;
 	justify-items: center;
@@ -21,4 +25,9 @@ body {
 body > * {
 	width: 100%;
 	margin-bottom: 2rem;
+}
+
+// IE requirement
+p {
+	width: 100%;
 }

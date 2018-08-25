@@ -1,4 +1,14 @@
 section.brewery {
+	// IE fallback
+	padding: 2rem;
+	width: 90%;
+	max-width: 55rem;
+	@supports(grid-area: auto) {
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
 	grid-column: 2/-2;
 	margin-top: 2rem;
 
@@ -8,12 +18,14 @@ section.brewery {
 
 	& > img {
 		max-height: 20rem;
+		max-width: 100%;
 	}
 
 	& > a {
 		@extend %button;
 	}
 
+	@supports(grid-area: auto) {
 	@media(min-width: 59rem) {
 		margin-top: 5rem;
 		grid-column: 1/-2;
@@ -25,7 +37,7 @@ section.brewery {
 		justify-items: start;
 
 		& > * {
-			max-width: 45rem;
+			max-width: 50rem;
 		}
 
 		& > img {
@@ -35,5 +47,6 @@ section.brewery {
 			grid-row: 1/-1;
 			object-fit: cover;
 		}
+	}
 	}
 }

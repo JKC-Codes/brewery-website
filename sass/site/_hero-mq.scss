@@ -1,8 +1,6 @@
 @media(max-width: 33rem) {
-
 .site-nav {
-	display: grid;
-	grid-template-columns: minmax(4.375rem, auto) 1fr minmax(4.375rem, auto);
+	display: flex;
 	align-items: start;
 }
 
@@ -84,6 +82,7 @@
 .site-nav-links {
 	transform: scaleY(0);
 	height: 0;
+	width: 55%;
 	transform-origin: top;
 	flex-direction: column;
 	transition: transform 0.2s ease-in-out, height 0.2s;
@@ -97,7 +96,7 @@
 		margin-bottom: 2rem;
 
 		&:last-child {
-			margin-bottom: -0.75rem;
+			margin-bottom: 1rem;
 		}
 	}
 }

@@ -1,10 +1,21 @@
 section.taproom {
+	// IE fallback
+	padding: 2rem;
+	width: 90%;
+	max-width: 55rem;
+	text-align: center;
+	@supports(grid-area: auto) {
+		padding: 0;
+		width: 100%;
+		max-width: 37.5rem;
+		text-align: left;
+	}
+
 	grid-column: 1/-1;
 	margin-top: 2rem;
 	@extend %callout-alt;
 	outline: 0.2rem solid $colour-brand-light;
 	outline-offset: -1.5rem;
-	max-width: 37.5rem;
 	display: grid;
 	justify-items: start;
 	grid-template:
@@ -39,6 +50,7 @@ section.taproom {
 		background-color: $colour-brand-dark;
 	}
 
+	@supports(grid-area: auto) {
 	@media(min-width: 59rem) {
 		grid-column: 3/-3;
 		max-width: 100%;
@@ -100,5 +112,6 @@ section.taproom {
 			align-self: end;
 			object-fit: cover;
 		}
+	}
 	}
 }
