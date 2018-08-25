@@ -16,13 +16,17 @@ section.brewery {
 
 	@media(min-width: 59rem) {
 		margin-top: 5rem;
-		grid-column: 1/-3;
+		grid-column: 1/-2;
 		display: grid;
 		grid-template:
 		repeat(5, auto) 2rem /
 			2fr 3fr;
 		grid-column-gap: 3rem;
 		justify-items: start;
+
+		& > * {
+			max-width: 45rem;
+		}
 
 		& > img {
 			justify-self: end;
