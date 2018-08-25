@@ -692,6 +692,7 @@ p {
             flex-direction: column;
     -webkit-box-align: center;
             align-items: center;
+    flex-basis: 6.1rem;
     padding: 0;
     min-width: auto;
     min-height: auto;
