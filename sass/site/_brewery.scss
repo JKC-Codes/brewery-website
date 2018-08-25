@@ -1,7 +1,6 @@
 section.brewery {
 	grid-column: 2/-2;
 	margin-top: 2rem;
-	// max-width: 100rem;
 
 	& > h2 {
 		margin-top: 2rem;
@@ -16,6 +15,7 @@ section.brewery {
 	}
 
 	@media(min-width: 59rem) {
+		margin-top: 5rem;
 		grid-column: 1/-3;
 		display: grid;
 		grid-template:

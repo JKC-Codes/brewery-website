@@ -1,3 +1,19 @@
 body > footer {
+	margin: 5rem 0;
+	width: 12rem;
 	grid-column: 3/-3;
+	@extend %column;
+	align-items: center;
+
+	& > svg {
+		width: 100%;
+		margin-bottom: -2rem;
+	}
+
+	& > small {
+		color: $colour-alt-light;
+		font-weight: 900;
+		line-height: 0.25;
+		text-align: center;
+	}
 }

@@ -499,12 +499,12 @@ button:active, section.mission a:active:link, section.taproom a:active:link, sec
   outline: none;
 }
 
-.hero, .beer, .site-nav-links, .carousel, .carousel > .beer-images {
+.hero, .beer, body > footer, .site-nav-links, .carousel, .carousel > .beer-images {
   display: -webkit-box;
   display: flex;
 }
 
-.hero, .beer {
+.hero, .beer, body > footer {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
@@ -1033,6 +1033,7 @@ section.brewery > img {
 
 @media (min-width: 59rem) {
   section.brewery {
+    margin-top: 5rem;
     grid-column: 1/-3;
     display: grid;
     grid-template: repeat(5, auto) 2rem/2fr 3fr;
@@ -1150,5 +1151,21 @@ section.taproom > a:nth-of-type(2n) {
 }
 
 body > footer {
+  margin: 5rem 0;
+  width: 12rem;
   grid-column: 3/-3;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+body > footer > svg {
+  width: 100%;
+  margin-bottom: -2rem;
+}
+
+body > footer > small {
+  color: #D3CDC1;
+  font-weight: 900;
+  line-height: 0.25;
+  text-align: center;
 }
