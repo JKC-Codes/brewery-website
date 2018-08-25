@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-	siteNav.initialise();
-	carousel.initialise();
-}, {once:true});
+document.onreadystatechange = function() {
+	if (document.readyState === 'interactive') {
+		siteNav.initialise();
+		carousel.initialise();
+	}
+};
 
 /*
 ==========
