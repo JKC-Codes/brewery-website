@@ -23,7 +23,6 @@ var siteNav = {
 	// Set and return whether menu is open
 	_open: false,
 	get open() {
-		console.log('open fetched. State = ' + document.readyState);
 		return siteNav._open;
 	},
 
@@ -120,7 +119,6 @@ var carousel = {
 	},
 
 	setInitialSpotlight: function() {
-		console.log('setting initial spotlight. State = ' + document.readyState);
 		let numberOfBeers = carousel.beers.length;
 		let middleBeer = Math.ceil((numberOfBeers -1) / 2);
 		carousel._spotlightIndex = middleBeer;
@@ -156,17 +154,12 @@ Run scripts on site load
 */
 
 function init() {
-	console.log('init running. State = ' + document.readyState);
 	siteNav.initialise();
 	carousel.initialise();
 }
 
-console.log('intial script loaded. State = ' + document.readyState);
 document.addEventListener('DOMContentLoaded', init, {once: true});
-console.log('listener added. State = ' + document.readyState);
 if(document.readyState !== 'loading') {
-	console.log('not loading. State = ' + document.readyState);
-	console.log('about to run init. State = ' + document.readyState);
 	init();
-	console.log('init has been run. State = ' + document.readyState);
+	document.removeEventListener('DOMContentLoaded', init, {once: true});
 }
