@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	siteNav.initialise();
 	carousel.initialise();
-});
+}, {once: true});
 
 /*
 ==========
