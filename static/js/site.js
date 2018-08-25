@@ -1,20 +1,3 @@
-console.log('intial script loaded. State = ' + document.readyState);
-document.addEventListener('DOMContentLoaded', init, {once: true});
-console.log('listener added. State = ' + document.readyState);
-if(document.readyState !== 'loading') {
-	console.log('not loaded. State = ' + document.readyState);
-	console.log('about to run init. State = ' + document.readyState);
-	init();
-	console.log('init has been run. State = ' + document.readyState);
-}
-
-
-function init() {
-	console.log('init running. State = ' + document.readyState);
-	siteNav.initialise();
-	carousel.initialise();
-}
-
 /*
 ==========
 Site navigation menu
@@ -163,4 +146,27 @@ var carousel = {
 			beer.style.transform = 'translateX(' + translate + 'rem)';
 		}
 	}
+}
+
+
+/*
+==========
+Run scripts on site load
+==========
+*/
+
+function init() {
+	console.log('init running. State = ' + document.readyState);
+	siteNav.initialise();
+	carousel.initialise();
+}
+
+console.log('intial script loaded. State = ' + document.readyState);
+document.addEventListener('DOMContentLoaded', init, {once: true});
+console.log('listener added. State = ' + document.readyState);
+if(document.readyState !== 'loading') {
+	console.log('not loading. State = ' + document.readyState);
+	console.log('about to run init. State = ' + document.readyState);
+	init();
+	console.log('init has been run. State = ' + document.readyState);
 }
