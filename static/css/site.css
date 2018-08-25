@@ -1058,6 +1058,8 @@ section.taproom {
   display: grid;
   justify-items: start;
   grid-template: 2.8rem repeat(7, auto) 2.8rem/2.8rem 1fr 1fr 2.8rem;
+  -webkit-box-align: start;
+          align-items: start;
 }
 
 section.taproom > * {
@@ -1098,7 +1100,7 @@ section.taproom > a:nth-of-type(2n) {
     max-width: 100%;
     outline: none;
     outline-offset: 0;
-    grid-template: 2.8rem repeat(4, auto) 2.8rem minmax(2rem, 0.5fr)/7fr 2.8rem 4fr 7fr 2.8rem;
+    grid-template: 2.8rem repeat(4, auto) 2.8rem 4rem/15fr 2.8rem 1fr 18rem 18rem 2.8rem;
   }
   section.taproom::before {
     content: '';
@@ -1113,13 +1115,14 @@ section.taproom > a:nth-of-type(2n) {
   }
   section.taproom > h2,
   section.taproom > p {
-    grid-column: 3/5;
+    grid-column: 3/6;
   }
   section.taproom > a:first-of-type {
-    grid-column: 3/4;
+    grid-column: 3/5;
+    margin-bottom: 0;
   }
   section.taproom > a:nth-of-type(2n) {
-    grid-column: 4/5;
+    grid-column: 5/6;
   }
   section.taproom > h2 {
     grid-row: 2/3;
@@ -1137,9 +1140,12 @@ section.taproom > a:nth-of-type(2n) {
   }
   section.taproom > img {
     z-index: -1;
-    grid-area: 2/1/-1/-3;
+    grid-area: 2/1/-1/-4;
     margin-top: 2rem;
-    max-height: 100%;
+    height: 85%;
+    align-self: end;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 
