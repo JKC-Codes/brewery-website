@@ -462,7 +462,7 @@ h3 {
   margin-bottom: 1em;
 }
 
-button, section.mission a:link, section.brewery > a {
+button, section.mission a:link, section.taproom a:link, section.brewery > a {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
@@ -478,16 +478,18 @@ button, section.mission a:link, section.brewery > a {
   text-align: center;
 }
 
-section.mission a:link, section.brewery > a,
+section.mission a:link, section.taproom a:link, section.brewery > a,
 section.mission a:visited:link,
+section.taproom a:visited:link,
 section.brewery > a:visited,
 section.mission a:link,
+section.taproom a:link,
 section.brewery > a:link {
   color: #414A4D;
   text-decoration: none;
 }
 
-button:active, section.mission a:active:link, section.brewery > a:active {
+button:active, section.mission a:active:link, section.taproom a:active:link, section.brewery > a:active {
   -webkit-transform: translate(0.01rem, 0.01rem);
           transform: translate(0.01rem, 0.01rem);
   -webkit-filter: contrast(90%);
@@ -545,15 +547,15 @@ figcaption {
   margin-top: 0;
 }
 
-section.mission h2 {
+section.mission h2, section.taproom h2 {
   margin: 0;
 }
 
-section.mission .subtitle {
+section.mission .subtitle, section.taproom .subtitle {
   margin-bottom: 1.5rem;
 }
 
-section.mission p {
+section.mission p, section.taproom p {
   margin-bottom: 1.5rem;
 }
 
@@ -563,6 +565,20 @@ section.mission {
 
 section.mission h2 {
   color: white;
+}
+
+section.taproom {
+  color: #89807A;
+}
+
+section.taproom h2 {
+  color: #5A666A;
+}
+
+section.taproom a:link:first-of-type {
+  color: #414A4D;
+  background-color: white;
+  border: 0.15rem solid #414A4D;
 }
 
 *,
@@ -597,7 +613,7 @@ body > * {
   grid-column: 1/-1;
   -webkit-box-align: center;
           align-items: center;
-  background: url("../img/hero-bg.jpg") center/cover no-repeat;
+  background: url("../img/hero-bg.jpeg") center/cover no-repeat;
   padding: 0 1rem 5rem 1rem;
   text-align: center;
   color: #D3CDC1;
@@ -1035,11 +1051,95 @@ section.brewery > img {
 
 section.taproom {
   grid-column: 1/-1;
+  margin-top: 2rem;
+  outline: 0.2rem solid #A3B9BF;
+  outline-offset: -1.5rem;
+  max-width: 37.5rem;
+  display: grid;
+  justify-items: start;
+  grid-template: 2.8rem repeat(7, auto) 2.8rem/2.8rem 1fr 1fr 2.8rem;
 }
 
-@media (min-width: 25rem) {
+section.taproom > * {
+  grid-column: 2/-2;
+}
+
+section.taproom > h2 {
+  grid-row-start: 2;
+  margin-bottom: 1rem;
+}
+
+section.taproom > .subtitle {
+  grid-row-start: 3;
+}
+
+section.taproom > img {
+  grid-row-start: 4;
+}
+
+section.taproom > p {
+  grid-row-start: 5;
+}
+
+section.taproom > a:first-of-type {
+  grid-row-start: 6;
+  margin-bottom: 2rem;
+}
+
+section.taproom > a:nth-of-type(2n) {
+  grid-row-start: 7;
+  color: white;
+  background-color: #414A4D;
+}
+
+@media (min-width: 59rem) {
   section.taproom {
-    grid-column: 3/-3;
+    grid-column: 3/-4;
+    max-width: 100%;
+    outline: none;
+    outline-offset: 0;
+    grid-template: 2.8rem repeat(4, auto) 2.8rem minmax(2rem, 0.5fr)/7fr 2.8rem 4fr 7fr 2.8rem;
+  }
+  section.taproom::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: white;
+    grid-area: 1/2/-2/-1;
+    outline: 0.2rem solid #A3B9BF;
+    outline-offset: -1.5rem;
+    -webkit-box-shadow: 0.0625rem 0.0625rem 0.5rem rgba(0, 0, 0, 0.1), -0.0625rem -0.0625rem 0.5rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0.0625rem 0.0625rem 0.5rem rgba(0, 0, 0, 0.1), -0.0625rem -0.0625rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  section.taproom > h2,
+  section.taproom > p {
+    grid-column: 3/5;
+  }
+  section.taproom > a:first-of-type {
+    grid-column: 3/4;
+  }
+  section.taproom > a:nth-of-type(2n) {
+    grid-column: 4/5;
+  }
+  section.taproom > h2 {
+    grid-row: 2/3;
+  }
+  section.taproom > p.subtitle {
+    grid-row: 3/4;
+  }
+  section.taproom > p {
+    grid-row: 4/5;
+    margin-top: 0;
+  }
+  section.taproom > a:first-of-type,
+  section.taproom > a:nth-of-type(2n) {
+    grid-row: 5/6;
+  }
+  section.taproom > img {
+    z-index: -1;
+    grid-area: 2/1/-1/-3;
+    margin-top: 2rem;
+    max-height: 100%;
   }
 }
 
