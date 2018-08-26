@@ -815,7 +815,7 @@ section.taproom > a:nth-of-type(2n) {
 }
 
 body > footer {
-  margin: 5rem 0;
+  margin: 5rem 0 7rem 0;
   width: 13rem;
   grid-column: 3/-3;
   -webkit-box-align: center;
@@ -824,12 +824,17 @@ body > footer {
 
 body > footer > svg {
   width: 100%;
-  margin-bottom: -2rem;
+  margin-bottom: -1rem;
 }
 
 body > footer > small {
   color: #D3CDC1;
   font-weight: 900;
-  line-height: 0.25;
+  line-height: 0.75;
   text-align: center;
+}
+
+body > footer .copyright {
+  font-size: 125%;
+  margin-bottom: 1.5em;
 }

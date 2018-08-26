@@ -1,5 +1,5 @@
 body > footer {
-	margin: 5rem 0;
+	margin: 5rem 0 7rem 0;
 	width: 13rem;
 	grid-column: 3/-3;
 	@extend %column;
@@ -7,13 +7,18 @@ body > footer {
 
 	& > svg {
 		width: 100%;
-		margin-bottom: -1.5rem;
+		margin-bottom: -1rem;
 	}
 
 	& > small {
 		color: $colour-alt-light;
 		font-weight: 900;
-		line-height: 0.25;
+		line-height: 0.75;
 		text-align: center;
+	}
+
+	& .copyright {
+		font-size: 125%;
+		margin-bottom: 1.5em;
 	}
 }
