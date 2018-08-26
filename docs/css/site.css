@@ -40,16 +40,10 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
-h1,
+
 h2,
 h3 {
   font-family: "program", sans-serif;
-}
-
-h1 {
-  font-size: 2.7em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
 }
 
 
@@ -103,6 +97,21 @@ button:active, section.mission a:active:link, section.taproom a:active:link, sec
   outline: none;
 }
 
+.site-title,
+.nav-title {
+  position: absolute !important;
+  top: auto !important;
+  left: -100vw !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+}
+
 body, .hero, .beer, body > footer, .site-nav-links, .carousel, .carousel > .beer-images {
   display: -webkit-box;
   display: flex;
@@ -120,7 +129,6 @@ body, .hero, .beer, body > footer {
           flex-direction: row;
 }
 
-h1,
 h2,
 h3 {
   color: #5A666A;
@@ -591,6 +599,7 @@ section.mission > p {
 
 section.mission > a {
   grid-row-start: 6;
+  outline-color: white;
 }
 
 section.mission > img {
@@ -749,6 +758,7 @@ section.taproom > a:nth-of-type(2n) {
   grid-row-start: 7;
   color: white;
   background-color: #414A4D;
+  outline-color: black;
 }
 
 @supports (grid-area: auto) {

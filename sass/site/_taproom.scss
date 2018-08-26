@@ -48,6 +48,7 @@ section.taproom {
 		grid-row-start: 7;
 		color: white;
 		background-color: $colour-brand-dark;
+		outline-color: black;
 	}
 
 	@supports(grid-area: auto) {
