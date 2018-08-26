@@ -99,7 +99,7 @@
 		}
 
 		figure {
-			width: 10rem;
+			width: 12.5rem;
 			flex-shrink: 0;
 			transition: transform 0.125s ease-in-out;
 		}
@@ -118,10 +118,6 @@
 
 		& .alcohol {
 			font-size: .5em;
-		}
-
-		& p {
-			white-space: nowrap;
 		}
 	}
 }

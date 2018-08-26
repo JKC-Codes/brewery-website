@@ -128,11 +128,18 @@ var carousel = {
 	initialSpotlightIndex: 0,
 
 	changeSpotlight: function() {
+		let sampleBeer = carousel.beers[0];
+		let beerStyles = window.getComputedStyle(sampleBeer);
+		let marginLeft = parseInt(beerStyles.marginLeft);
+		let marginRight = parseInt(beerStyles.marginRight);
+		let width = parseInt(beerStyles.width);
+		let totalWidth = marginLeft + marginRight + width;
+		let offset = carousel.spotlight - carousel.initialSpotlightIndex;
+		let translate = -totalWidth * offset;
+
 		for(let i = 0; i < carousel.beers.length; i++) {
 			let beer = carousel.beers[i];
 			let caption = beer.querySelector('figcaption');
-			let offset = carousel.spotlight - carousel.initialSpotlightIndex;
-			let translate = -15 * offset;
 
 			// Show text only for spotlight beer
 			if(i === carousel.spotlight) {
@@ -141,7 +148,7 @@ var carousel = {
 				caption.style.opacity = '0';
 			}
 			// Scroll spotlight beer into middle;
-			beer.style.transform = 'translateX(' + translate + 'rem)';
+			beer.style.transform = 'translateX(' + translate + 'px)';
 		}
 	}
 }

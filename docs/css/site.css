@@ -525,7 +525,7 @@ p {
 }
 
 .carousel > .beer-images figure {
-  width: 10rem;
+  width: 12.5rem;
   flex-shrink: 0;
   -webkit-transition: -webkit-transform 0.125s ease-in-out;
   transition: -webkit-transform 0.125s ease-in-out;
@@ -547,10 +547,6 @@ p {
 
 .carousel > .beer-images .alcohol {
   font-size: .5em;
-}
-
-.carousel > .beer-images p {
-  white-space: nowrap;
 }
 
 section.mission {
