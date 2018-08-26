@@ -132,7 +132,7 @@ var carousel = {
 			let beer = carousel.beers[i];
 			let caption = beer.querySelector('figcaption');
 			let offset = carousel.spotlight - carousel.initialSpotlightIndex;
-			let translate = -14 * offset;
+			let translate = -15 * offset;
 
 			// Show text only for spotlight beer
 			if(i === carousel.spotlight) {
