@@ -104,40 +104,82 @@ var carousel = {
 	},
 
 	// Set and return spotlight beer
-	_spotlightIndex: 0,
+	_spotlight: 0,
 	get spotlight() {
-		return carousel._spotlightIndex;
+		return carousel._spotlight;
 	},
 
 	set spotlight(index) {
-		index = index % carousel.beers.length
+		index = index % carousel.beersCount
 		if(index < 0) {
-			index = carousel.beers.length - 1;
+			index = carousel.beersCount - 1;
 		}
-		carousel._spotlightIndex = index;
+		carousel._spotlight = index;
 		carousel.changeSpotlight();
 	},
 
 	setInitialSpotlight: function() {
-		let numberOfBeers = carousel.beers.length;
-		let middleBeer = Math.ceil((numberOfBeers -1) / 2);
-		carousel._spotlightIndex = middleBeer;
-		carousel.initialSpotlightIndex = middleBeer;
-		carousel.changeSpotlight();
+		carousel.beersCount = carousel.beers.length;
+
+		// Get beer dimensions for calculations
+		let beerStyles = window.getComputedStyle(carousel.beers[0]);
+		let beerMarginLeft = parseInt(beerStyles.marginLeft);
+		let beerMarginRight = parseInt(beerStyles.marginRight);
+		let beerWidth = parseInt(beerStyles.width);
+
+		// Set variables for calculations
+		carousel.beerTotalWidth = beerMarginLeft + beerMarginRight + beerWidth;
+		carousel.initialSpotlight = Math.ceil((carousel.beersCount -1) / 2);
+		carousel.fallbackOffset = 0;
+
+		// Change spotlight to middle beer
+		carousel.spotlight = carousel.initialSpotlight;
+
+		// Adjust offset if justify centre isn't supported
+		let beerPosition = carousel.beers[0].getBoundingClientRect();
+		if(beerPosition.left - beerMarginLeft === 0) {
+			carousel.adjustOffset(beerMarginLeft);
+		}
 	},
-	initialSpotlightIndex: 0,
+
+	adjustOffset: function(beerMarginLeft) {
+		let beerPosition = carousel.beers[0].getBoundingClientRect();
+		let resizing = false;
+
+		window.addEventListener('resize', makeAdjustment);
+		makeAdjustment();
+
+		function makeAdjustment() {
+			// Check if already running
+			if(resizing) {
+				return;
+			}
+			setTimeout(function() {
+				resizing = false;
+			}, 66);
+			resizing = true;
+
+			// Check for false positive
+			if(beerPosition.left - beerMarginLeft !== 0) {
+				console.log('false positive');
+				carousel.setInitialSpotlight();
+				window.removeEventListener('resize', makeAdjustment);
+			}
+
+			// Adjust offset
+			let carouselWidth = carousel.element.getBoundingClientRect().width;
+			let centre = -((carouselWidth - carousel.beerTotalWidth) / 2);
+			carousel.fallbackOffset = centre + (carousel.beerTotalWidth * carousel.initialSpotlight);
+			carousel.changeSpotlight();
+		}
+	},
 
 	changeSpotlight: function() {
-		let sampleBeer = carousel.beers[0];
-		let beerStyles = window.getComputedStyle(sampleBeer);
-		let marginLeft = parseInt(beerStyles.marginLeft);
-		let marginRight = parseInt(beerStyles.marginRight);
-		let width = parseInt(beerStyles.width);
-		let totalWidth = marginLeft + marginRight + width;
-		let offset = carousel.spotlight - carousel.initialSpotlightIndex;
-		let translate = -totalWidth * offset;
+		let offset = carousel.beerTotalWidth * -carousel.initialSpotlight + carousel.fallbackOffset;
+		let scrollAmount = carousel.beerTotalWidth * -carousel.spotlight;
+		let translate = scrollAmount - offset;
 
-		for(let i = 0; i < carousel.beers.length; i++) {
+		for(let i = 0; i < carousel.beersCount; i++) {
 			let beer = carousel.beers[i];
 			let caption = beer.querySelector('figcaption');
 
