@@ -2,7 +2,7 @@
 	grid-column: 1/-1;
 	@extend %column;
 	align-items: center;
-	background: url("../img/hero-bg.jpeg") top center no-repeat;
+	background: url("../img/hero-bg.jpeg") top center no-repeat, #43382F;
 	padding: 0 1rem 5rem 1rem;
 	text-align: center;
 	color: $colour-alt-light;
