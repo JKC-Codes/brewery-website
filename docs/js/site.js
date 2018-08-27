@@ -130,52 +130,56 @@ var carousel = {
 		// Set variables for calculations
 		carousel.beerTotalWidth = beerMarginLeft + beerMarginRight + beerWidth;
 		carousel.initialSpotlight = Math.ceil((carousel.beersCount -1) / 2);
-		carousel.fallbackOffset = 0;
 
 		// Change spotlight to middle beer
 		carousel.spotlight = carousel.initialSpotlight;
 
-		// Adjust offset if justify centre isn't supported
-		let beerPosition = carousel.beers[0].getBoundingClientRect();
-		if(beerPosition.left - beerMarginLeft === 0) {
-			carousel.adjustOffset(beerMarginLeft);
+		// Ensure carousel is not displayed full width before checking if centered
+		let carouselTotalWidth = carousel.beerTotalWidth * carousel.beersCount;
+		let mediaQuery = window.matchMedia("(min-width:" + carouselTotalWidth + "px)");
+
+		function checkIfNarrow(mq) {
+			if(!mq.matches) {
+				checkFallbackNeed();
+				mediaQuery.removeListener(checkIfNarrow);
+			}
+		}
+		mediaQuery.addListener(checkIfNarrow);
+		checkIfNarrow(mediaQuery);
+
+		// Check if fallback for centering carousel is necessary
+		function checkFallbackNeed() {
+			let beerProperties = carousel.beers[carousel.spotlight].getBoundingClientRect();
+			let carouselProperties = carousel.element.getBoundingClientRect();
+			let centre = (carouselProperties.width / 2) + carouselProperties.left;
+			let offset = centre - (beerProperties.width / 2);
+
+			if(beerProperties.left !== offset) {
+				window.addEventListener('resize', function() {
+					if(!carousel.fallbackRunning) {
+						carousel.fallbackRunning = true;
+						carousel.setOffsetFallback();
+					}
+				});
+				carousel.setOffsetFallback();
+			}
 		}
 	},
 
-	adjustOffset: function(beerMarginLeft) {
-		let beerPosition = carousel.beers[0].getBoundingClientRect();
-		let resizing = false;
+	setOffsetFallback: function() {
+		let carouselWidth = carousel.element.getBoundingClientRect().width;
+		let offset = (carouselWidth - carousel.beerTotalWidth) / 2;
 
-		window.addEventListener('resize', makeAdjustment);
-		makeAdjustment();
-
-		function makeAdjustment() {
-			// Check if already running
-			if(resizing) {
-				return;
-			}
-			setTimeout(function() {
-				resizing = false;
-			}, 66);
-			resizing = true;
-
-			// Check for false positive
-			if(beerPosition.left - beerMarginLeft !== 0) {
-				console.log('false positive');
-				carousel.setInitialSpotlight();
-				window.removeEventListener('resize', makeAdjustment);
-			}
-
-			// Adjust offset
-			let carouselWidth = carousel.element.getBoundingClientRect().width;
-			let centre = -((carouselWidth - carousel.beerTotalWidth) / 2);
-			carousel.fallbackOffset = centre + (carousel.beerTotalWidth * carousel.initialSpotlight);
-			carousel.changeSpotlight();
-		}
+		carousel.offsetFallback = offset;
+		carousel.changeSpotlight();
+		carousel.fallbackRunning = false;
 	},
 
 	changeSpotlight: function() {
-		let offset = carousel.beerTotalWidth * -carousel.initialSpotlight + carousel.fallbackOffset;
+		let offset = carousel.beerTotalWidth * -carousel.initialSpotlight;
+			if(carousel.offsetFallback) {
+				offset = -carousel.offsetFallback;
+			}
 		let scrollAmount = carousel.beerTotalWidth * -carousel.spotlight;
 		let translate = scrollAmount - offset;
 
