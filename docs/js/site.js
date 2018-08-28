@@ -121,14 +121,8 @@ var carousel = {
 	setInitialSpotlight: function() {
 		carousel.beersCount = carousel.beers.length;
 
-		// Get beer dimensions for calculations
-		let beerStyles = window.getComputedStyle(carousel.beers[0]);
-		let beerMarginLeft = parseInt(beerStyles.marginLeft);
-		let beerMarginRight = parseInt(beerStyles.marginRight);
-		let beerWidth = parseInt(beerStyles.width);
-
 		// Set variables for calculations
-		carousel.beerTotalWidth = beerMarginLeft + beerMarginRight + beerWidth;
+		carousel.beerTotalWidth = 280;
 		carousel.initialSpotlight = Math.ceil((carousel.beersCount -1) / 2);
 
 		// Change spotlight to middle beer
@@ -177,9 +171,9 @@ var carousel = {
 
 	changeSpotlight: function() {
 		let offset = carousel.beerTotalWidth * -carousel.initialSpotlight;
-			if(carousel.offsetFallback) {
-				offset = -carousel.offsetFallback;
-			}
+		if(carousel.offsetFallback) {
+			offset = -carousel.offsetFallback;
+		}
 		let scrollAmount = carousel.beerTotalWidth * -carousel.spotlight;
 		let translate = scrollAmount - offset;
 
