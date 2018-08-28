@@ -110,26 +110,24 @@ var carousel = {
 	},
 
 	set spotlight(index) {
-		index = index % carousel.beersCount
+		index = index % carousel.beers.length
 		if(index < 0) {
-			index = carousel.beersCount - 1;
+			index = carousel.beers.length - 1;
 		}
 		carousel._spotlight = index;
 		carousel.changeSpotlight();
 	},
 
 	setInitialSpotlight: function() {
-		carousel.beersCount = carousel.beers.length;
-
 		// Set variables for calculations
 		carousel.beerTotalWidth = 280;
-		carousel.initialSpotlight = Math.ceil((carousel.beersCount -1) / 2);
+		carousel.initialSpotlight = Math.ceil((carousel.beers.length -1) / 2);
 
 		// Change spotlight to middle beer
 		carousel.spotlight = carousel.initialSpotlight;
 
 		// Ensure carousel is not displayed full width before checking if centered
-		let carouselTotalWidth = carousel.beerTotalWidth * carousel.beersCount;
+		let carouselTotalWidth = carousel.beerTotalWidth * carousel.beers.length;
 		let mediaQuery = window.matchMedia("(min-width:" + carouselTotalWidth + "px)");
 
 		function checkIfNarrow(mq) {
@@ -177,7 +175,7 @@ var carousel = {
 		let scrollAmount = carousel.beerTotalWidth * -carousel.spotlight;
 		let translate = scrollAmount - offset;
 
-		for(let i = 0; i < carousel.beersCount; i++) {
+		for(let i = 0; i < carousel.beers.length; i++) {
 			let beer = carousel.beers[i];
 			let caption = beer.querySelector('figcaption');
 
