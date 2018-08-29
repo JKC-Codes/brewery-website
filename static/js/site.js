@@ -150,7 +150,7 @@ var carousel = {
 				window.addEventListener('resize', function() {
 					if(!carousel.fallbackRunning) {
 						carousel.fallbackRunning = true;
-						carousel.setOffsetFallback();
+						requestAnimationFrame(carousel.setOffsetFallback);
 					}
 				});
 				carousel.setOffsetFallback();
