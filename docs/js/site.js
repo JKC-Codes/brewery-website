@@ -31,11 +31,7 @@ var siteNav = {
 		siteNav._open = boolean;
 	},
 
-	// Set and return menu text
-	get buttonText() {
-		return siteNav._buttonText.textContent;
-	},
-
+	// Set menu text
 	set buttonText(text) {
 		siteNav._buttonText.textContent = text;
 	},
