@@ -18,6 +18,9 @@ var siteNav = {
 		let mediaQuery = window.matchMedia("(max-width: 33rem)");
 		mediaQuery.addListener(siteNav.showOnWideScreens);
 		siteNav.showOnWideScreens(mediaQuery);
+
+		// Remove fallback
+		siteNav.links.classList.remove('noscript');
 	},
 
 	// Set and return whether menu is open
@@ -116,13 +119,13 @@ var carousel = {
 
 	setInitialSpotlight: function() {
 		// Set variables for calculations
-		carousel.beerTotalWidth = 280;
+		carousel.beerTotalWidth = 216;
 		carousel.initialSpotlight = Math.ceil((carousel.beers.length -1) / 2);
 
 		// Change spotlight to middle beer
 		carousel.spotlight = carousel.initialSpotlight;
 
-		// Ensure carousel is not displayed full width before checking if centered
+		// Fallback - Ensure carousel is not displayed full width before checking
 		let carouselTotalWidth = carousel.beerTotalWidth * carousel.beers.length;
 		let mediaQuery = window.matchMedia("(min-width:" + carouselTotalWidth + "px)");
 
@@ -173,7 +176,21 @@ var carousel = {
 
 		for(let i = 0; i < carousel.beers.length; i++) {
 			let beer = carousel.beers[i];
+			let image = beer.querySelector('img');
 			let caption = beer.querySelector('figcaption');
+
+			// Scale beers according to order
+			switch(carousel.spotlight - i) {
+				case 0:
+					image.style.transform = 'scale(1)';
+					break;
+				case 1:
+				case -1:
+					image.style.transform = 'scale(0.85)';
+					break;
+				default:
+					image.style.transform = 'scale(0.7)';
+			}
 
 			// Show text only for spotlight beer
 			if(i === carousel.spotlight) {

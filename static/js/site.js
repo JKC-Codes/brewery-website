@@ -119,7 +119,7 @@ var carousel = {
 
 	setInitialSpotlight: function() {
 		// Set variables for calculations
-		carousel.beerTotalWidth = 280;
+		carousel.beerTotalWidth = 216;
 		carousel.initialSpotlight = Math.ceil((carousel.beers.length -1) / 2);
 
 		// Change spotlight to middle beer
@@ -176,7 +176,21 @@ var carousel = {
 
 		for(let i = 0; i < carousel.beers.length; i++) {
 			let beer = carousel.beers[i];
+			let image = beer.querySelector('img');
 			let caption = beer.querySelector('figcaption');
+
+			// Scale beers according to order
+			switch(carousel.spotlight - i) {
+				case 0:
+					image.style.transform = 'scale(1)';
+					break;
+				case 1:
+				case -1:
+					image.style.transform = 'scale(0.85)';
+					break;
+				default:
+					image.style.transform = 'scale(0.7)';
+			}
 
 			// Show text only for spotlight beer
 			if(i === carousel.spotlight) {

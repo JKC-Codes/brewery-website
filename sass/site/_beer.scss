@@ -105,6 +105,11 @@
 		figure {
 			width: 12.5rem;
 			flex-shrink: 0;
+			margin: 0.5rem;
+		}
+
+		figure,
+		img {
 			transition: transform 0.125s ease-in-out;
 		}
 

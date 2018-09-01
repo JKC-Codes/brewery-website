@@ -540,6 +540,11 @@ p {
 .carousel > .beer-images figure {
   width: 12.5rem;
   flex-shrink: 0;
+  margin: 0.5rem;
+}
+
+.carousel > .beer-images figure,
+.carousel > .beer-images img {
   -webkit-transition: -webkit-transform 0.125s ease-in-out;
   transition: -webkit-transform 0.125s ease-in-out;
   transition: transform 0.125s ease-in-out;
