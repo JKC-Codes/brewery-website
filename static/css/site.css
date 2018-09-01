@@ -110,6 +110,7 @@ button:active, section.mission a:active:link, section.taproom a:active:link, sec
   overflow: hidden !important;
   -webkit-clip-path: inset(50%) !important;
           clip-path: inset(50%) !important;
+  white-space: nowrap !important;
 }
 
 body, .hero, .beer, body > footer, .site-nav-links, .carousel, .carousel > .beer-images {
@@ -393,6 +394,13 @@ p {
     padding: 1rem;
     margin: 1rem;
   }
+  .site-nav-links.noscript {
+    -webkit-transform: none;
+            transform: none;
+    height: auto;
+    -webkit-transition: 0;
+    transition: 0;
+  }
   .site-nav-links > li {
     margin-bottom: 2rem;
   }
@@ -496,6 +504,11 @@ p {
   overflow-x: auto;
   text-align: center;
   outline: none;
+}
+
+.carousel > .beer-images.noscript {
+  -webkit-box-pack: start;
+          justify-content: start;
 }
 
 .carousel > .beer-images::before, .carousel > .beer-images::after {

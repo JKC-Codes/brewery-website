@@ -18,6 +18,9 @@ var siteNav = {
 		let mediaQuery = window.matchMedia("(max-width: 33rem)");
 		mediaQuery.addListener(siteNav.showOnWideScreens);
 		siteNav.showOnWideScreens(mediaQuery);
+
+		// Remove fallback
+		siteNav.links.classList.remove('noscript');
 	},
 
 	// Set and return whether menu is open
@@ -122,7 +125,7 @@ var carousel = {
 		// Change spotlight to middle beer
 		carousel.spotlight = carousel.initialSpotlight;
 
-		// Ensure carousel is not displayed full width before checking if centered
+		// Fallback - Ensure carousel is not displayed full width before checking
 		let carouselTotalWidth = carousel.beerTotalWidth * carousel.beers.length;
 		let mediaQuery = window.matchMedia("(min-width:" + carouselTotalWidth + "px)");
 

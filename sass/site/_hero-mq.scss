@@ -93,6 +93,12 @@
 	padding: 1rem;
 	margin: 1rem;
 
+	&.noscript {
+		transform: none;
+		height: auto;
+		transition: 0;
+	}
+
 	& > li {
 		margin-bottom: 2rem;
 

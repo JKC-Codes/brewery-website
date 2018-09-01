@@ -64,6 +64,10 @@
 		text-align: center;
 		outline: none;
 
+		&.noscript {
+			justify-content: start;
+		}
+
 		&::before,
 		&::after {
 			content: '';
