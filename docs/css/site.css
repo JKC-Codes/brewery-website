@@ -43,7 +43,7 @@ button:-moz-focusring,
 
 h2,
 h3 {
-  font-family: "program", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 
@@ -133,7 +133,6 @@ body, .hero, .beer, body > footer {
 h2,
 h3 {
   color: #5A666A;
-  font-family: 'Roboto', sans-serif;
   font-weight: 900;
   line-height: 1;
   margin-bottom: 0.5rem;
@@ -264,7 +263,7 @@ p {
 
 .site-nav-links {
   flex-wrap: wrap;
-  font-weight: 700;
+  font-weight: 900;
   padding: 0;
   list-style-type: none;
   -webkit-box-pack: justify;
