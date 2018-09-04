@@ -764,7 +764,7 @@ section.taproom > p {
 
 section.taproom > a:first-of-type {
   grid-row-start: 6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 section.taproom > a:nth-of-type(2n) {
