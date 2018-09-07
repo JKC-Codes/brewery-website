@@ -146,6 +146,17 @@ figcaption {
   font-size: 0.75em;
 }
 
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .subtitle {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
@@ -276,12 +287,10 @@ p {
 
 .site-nav-links a {
   color: #D3CDC1;
-  text-decoration: none;
 }
 
 .site-nav-links a:hover {
   color: #A3B9BF;
-  text-decoration: underline;
 }
 
 .hero-image {

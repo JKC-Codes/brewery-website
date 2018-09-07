@@ -50,11 +50,9 @@
 
 	& a {
 		color: $colour-alt-light;
-		text-decoration: none;
 
 		&:hover {
 			color: $colour-brand-light;
-			text-decoration: underline;
 		}
 	}
 }

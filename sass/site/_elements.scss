@@ -22,6 +22,17 @@ figcaption {
 	font-size: 0.75em;
 }
 
+a,
+a:link,
+a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 button {
 	@extend %button;
 }
