@@ -5,9 +5,8 @@ body > footer {
 	@extend %column;
 	align-items: center;
 
-	& > svg {
-		width: 100%;
-		margin-bottom: -1rem;
+	.footer-image {
+		fill: $colour-alt-light;
 	}
 
 	& > small {

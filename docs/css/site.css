@@ -285,8 +285,9 @@ p {
 }
 
 .hero-image {
-  width: 100%;
-  padding: 3rem 0;
+  fill: white;
+  max-width: 19.5rem;
+  margin: 3rem 0;
 }
 
 @media (max-width: 33rem) {
@@ -841,9 +842,8 @@ body > footer {
           align-items: center;
 }
 
-body > footer > svg {
-  width: 100%;
-  margin-bottom: -1rem;
+body > footer .footer-image {
+  fill: #D3CDC1;
 }
 
 body > footer > small {
