@@ -92,8 +92,8 @@ button:active, section.mission a:active:link, section.taproom a:active:link, sec
           transform: translate(0.01rem, 0.01rem);
   -webkit-filter: contrast(90%);
           filter: contrast(90%);
-  -webkit-box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0.125rem 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0.05rem 0.05rem 0.05rem 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0.05rem 0.05rem 0.05rem 0 rgba(0, 0, 0, 0.2);
   outline: none;
 }
 
@@ -663,6 +663,8 @@ section.mission > img {
       grid-area: 2/3/-1/-1;
       margin-top: 2rem;
       max-height: 100%;
+      -webkit-box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+              box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -791,8 +793,8 @@ section.taproom > a:nth-of-type(2n) {
       grid-area: 1/2/-2/-1;
       outline: 0.2rem solid #A3B9BF;
       outline-offset: -1.5rem;
-      -webkit-box-shadow: 0.0625rem 0.0625rem 0.5rem rgba(0, 0, 0, 0.1), -0.0625rem -0.0625rem 0.5rem rgba(0, 0, 0, 0.1);
-              box-shadow: 0.0625rem 0.0625rem 0.5rem rgba(0, 0, 0, 0.1), -0.0625rem -0.0625rem 0.5rem rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+              box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
     }
     section.taproom > h2,
     section.taproom > p {
