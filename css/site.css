@@ -88,12 +88,9 @@ section.brewery > a:link {
 }
 
 button:active, section.mission a:active:link, section.taproom a:active:link, section.brewery > a:active {
-  -webkit-transform: translate(0.01rem, 0.01rem);
-          transform: translate(0.01rem, 0.01rem);
-  -webkit-filter: contrast(90%);
-          filter: contrast(90%);
-  -webkit-box-shadow: 0.05rem 0.05rem 0.05rem 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0.05rem 0.05rem 0.05rem 0 rgba(0, 0, 0, 0.2);
+  transform: translate(0.01rem, 0.01rem);
+  filter: contrast(90%);
+  box-shadow: 0.05rem 0.05rem 0.05rem 0 rgba(0, 0, 0, 0.2);
   outline: none;
 }
 
@@ -108,26 +105,20 @@ button:active, section.mission a:active:link, section.taproom a:active:link, sec
   border: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
-  -webkit-clip-path: inset(50%) !important;
-          clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
   white-space: nowrap !important;
 }
 
 body, .hero, .beer, body > footer, .site-nav-links, .carousel, .carousel > .beer-images {
-  display: -webkit-box;
   display: flex;
 }
 
 body, .hero, .beer, body > footer {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .site-nav-links, .carousel, .carousel > .beer-images {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 h2,
@@ -207,8 +198,7 @@ section.taproom a:link:first-of-type {
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -216,8 +206,7 @@ body {
   font: 125%/1.5 "Merriweather", serif;
   overflow-wrap: break-word;
   scroll-behavior: smooth;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   display: grid;
   grid-template-columns: 1rem 1fr minmax(auto, 70rem) 1fr 1rem;
   justify-items: center;
@@ -240,8 +229,7 @@ p {
 
 .hero {
   grid-column: 1/-1;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   background: url("../img/hero-bg.jpeg") top center no-repeat, #43382F;
   padding: 0 1rem 5rem 1rem;
   text-align: center;
@@ -261,8 +249,7 @@ p {
   display: block;
   position: relative;
   left: 50%;
-  -webkit-transform: translate(-50%, -1.75rem);
-          transform: translate(-50%, -1.75rem);
+  transform: translate(-50%, -1.75rem);
   background: white;
   width: 6rem;
   height: 0.0625rem;
@@ -277,8 +264,7 @@ p {
   font-weight: 900;
   padding: 0;
   list-style-type: none;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .site-nav-links > li {
@@ -301,19 +287,13 @@ p {
 
 @media (max-width: 33rem) {
   .site-nav {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: start;
-            align-items: start;
+    align-items: start;
   }
   .site-nav-button {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    -webkit-box-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
     flex-basis: 6.1rem;
     padding: 0;
     min-width: auto;
@@ -321,8 +301,7 @@ p {
     margin-top: 1.25rem;
     background: none;
     border-radius: 0;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .site-nav-button .menu-text {
     font-size: 0.8em;
@@ -330,10 +309,8 @@ p {
     margin-bottom: 0;
   }
   .site-nav-button:active {
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    -webkit-transform: none;
-            transform: none;
+    box-shadow: none;
+    transform: none;
     color: white;
   }
   .site-nav-button:active .menu-text {
@@ -352,25 +329,20 @@ p {
     height: 1.5rem;
   }
   .site-nav-button .menu-icon .line1 {
-    -webkit-transform-origin: top left;
-            transform-origin: top left;
+    transform-origin: top left;
   }
   .site-nav-button .menu-icon .line2 {
-    -webkit-transform-origin: top right;
-            transform-origin: top right;
+    transform-origin: top right;
   }
   .site-nav-button .menu-icon .line3,
   .site-nav-button .menu-icon .line4 {
-    -webkit-transform-origin: center;
-            transform-origin: center;
+    transform-origin: center;
   }
   .site-nav-button .menu-icon .line5 {
-    -webkit-transform-origin: bottom left;
-            transform-origin: bottom left;
+    transform-origin: bottom left;
   }
   .site-nav-button .menu-icon .line6 {
-    -webkit-transform-origin: bottom right;
-            transform-origin: bottom right;
+    transform-origin: bottom right;
   }
   .site-nav-button .menu-icon .line1,
   .site-nav-button .menu-icon .line2,
@@ -378,25 +350,15 @@ p {
   .site-nav-button .menu-icon .line4,
   .site-nav-button .menu-icon .line5,
   .site-nav-button .menu-icon .line6 {
-    -webkit-transition: -webkit-transform 0.2s ease-in-out;
-    transition: -webkit-transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out;
-    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   }
   .site-nav-links {
-    -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
     height: 0;
     width: 55%;
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    -webkit-transition: height 0.2s, -webkit-transform 0.2s ease-in-out;
-    transition: height 0.2s, -webkit-transform 0.2s ease-in-out;
+    transform-origin: top;
+    flex-direction: column;
     transition: transform 0.2s ease-in-out, height 0.2s;
-    transition: transform 0.2s ease-in-out, height 0.2s, -webkit-transform 0.2s ease-in-out;
     display: inline-block;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid white;
@@ -404,10 +366,8 @@ p {
     margin: 1rem;
   }
   .site-nav-links.noscript {
-    -webkit-transform: none;
-            transform: none;
+    transform: none;
     height: auto;
-    -webkit-transition: 0;
     transition: 0;
   }
   .site-nav-links > li {
@@ -417,37 +377,30 @@ p {
     margin-bottom: 1rem;
   }
   .site-nav[data-open="true"] > .site-nav-links {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
     height: 100%;
   }
   .site-nav[data-open="true"] .menu-icon .line1 {
-    -webkit-transform: translateX(14.15%) rotate(45deg);
-            transform: translateX(14.15%) rotate(45deg);
+    transform: translateX(14.15%) rotate(45deg);
   }
   .site-nav[data-open="true"] .menu-icon .line2 {
-    -webkit-transform: translateX(-14.15%) rotate(-45deg);
-            transform: translateX(-14.15%) rotate(-45deg);
+    transform: translateX(-14.15%) rotate(-45deg);
   }
   .site-nav[data-open="true"] .menu-icon .line3,
   .site-nav[data-open="true"] .menu-icon .line4 {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
+    transform: scaleX(0);
   }
   .site-nav[data-open="true"] .menu-icon .line5 {
-    -webkit-transform: translateX(14.15%) rotate(-45deg);
-            transform: translateX(14.15%) rotate(-45deg);
+    transform: translateX(14.15%) rotate(-45deg);
   }
   .site-nav[data-open="true"] .menu-icon .line6 {
-    -webkit-transform: translateX(-14.15%) rotate(45deg);
-            transform: translateX(-14.15%) rotate(45deg);
+    transform: translateX(-14.15%) rotate(45deg);
   }
 }
 
 .beer {
   grid-column: 2/-2;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .beer .section-heading,
@@ -467,8 +420,7 @@ p {
   position: absolute;
   padding: 0;
   background: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   top: 1.25rem;
   bottom: 2rem;
   z-index: 2;
@@ -479,14 +431,12 @@ p {
 }
 
 .carousel button:active {
-  -webkit-transform: none;
-          transform: none;
+  transform: none;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 .carousel button:active > svg {
-  -webkit-filter: brightness(150%) saturate(0);
-          filter: brightness(150%) saturate(0);
+  filter: brightness(150%) saturate(0);
 }
 
 .carousel button > svg {
@@ -503,21 +453,18 @@ p {
 }
 
 .carousel button.carousel-right > svg {
-  -webkit-transform: rotate(0.5turn);
-          transform: rotate(0.5turn);
+  transform: rotate(0.5turn);
 }
 
 .carousel > .beer-images {
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   overflow-x: auto;
   text-align: center;
   outline: none;
 }
 
 .carousel > .beer-images.noscript {
-  -webkit-box-pack: start;
-          justify-content: start;
+  justify-content: start;
 }
 
 .carousel > .beer-images::before, .carousel > .beer-images::after {
@@ -529,14 +476,12 @@ p {
 }
 
 .carousel > .beer-images::before {
-  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(75%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(to right, white, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0));
   right: calc(50% + 7rem);
   left: 0;
 }
 
 .carousel > .beer-images::after {
-  background: -webkit-gradient(linear, right top, left top, from(white), color-stop(75%, rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(to left, white, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0));
   right: 0;
   left: calc(50% + 7rem);
@@ -554,10 +499,7 @@ p {
 
 .carousel > .beer-images figure,
 .carousel > .beer-images img {
-  -webkit-transition: -webkit-transform 0.125s ease-in-out;
-  transition: -webkit-transform 0.125s ease-in-out;
   transition: transform 0.125s ease-in-out;
-  transition: transform 0.125s ease-in-out, -webkit-transform 0.125s ease-in-out;
 }
 
 .carousel > .beer-images h3 {
@@ -673,8 +615,7 @@ section.mission > img {
       grid-area: 2/3/-1/-1;
       margin-top: 2rem;
       max-height: 100%;
-      -webkit-box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
-              box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+      box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -722,8 +663,7 @@ section.brewery > img {
       height: 100%;
       max-height: 100%;
       grid-row: 1/-1;
-      -o-object-fit: cover;
-         object-fit: cover;
+      object-fit: cover;
     }
   }
 }
@@ -740,8 +680,7 @@ section.taproom {
   display: grid;
   justify-items: start;
   grid-template: 2.8rem repeat(7, auto) 2.8rem/2.8rem 1fr 1fr 2.8rem;
-  -webkit-box-align: start;
-          align-items: start;
+  align-items: start;
 }
 
 @supports (grid-area: auto) {
@@ -803,8 +742,7 @@ section.taproom > a:nth-of-type(2n) {
       grid-area: 1/2/-2/-1;
       outline: 0.2rem solid #A3B9BF;
       outline-offset: -1.5rem;
-      -webkit-box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
-              box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+      box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
     }
     section.taproom > h2,
     section.taproom > p {
@@ -837,8 +775,7 @@ section.taproom > a:nth-of-type(2n) {
       margin-top: 2rem;
       height: 85%;
       align-self: end;
-      -o-object-fit: cover;
-         object-fit: cover;
+      object-fit: cover;
     }
   }
 }
@@ -847,8 +784,7 @@ body > footer {
   margin: 5rem 0 7rem 0;
   width: 13rem;
   grid-column: 3/-3;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 body > footer .footer-image {
